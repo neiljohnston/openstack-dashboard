@@ -13,10 +13,23 @@
   font-style: normal;
 }
 
+@font-face {
+    font-family: 'OratorStdMedium';
+    src: url('oratorstd-webfont.eot');
+    src: url('oratorstd-webfont.eot?#iefix') format('embedded-opentype'),
+         url('oratorstd-webfont.woff') format('woff'),
+         url('oratorstd-webfont.ttf') format('truetype'),
+         url('oratorstd-webfont.svg#OratorStdMedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 body {
   background: url(../images/content_bg.png) top left repeat-y;
-  font: 16px/21px anivers, helvetica, arial, sans-serif ;
-  color: #989898;
+  /* font: 16px/21px anivers, trebuchet, helvetica, arial, sans-serif; */
+  font: 16px/21px OratorStdMedium, trebuchet, helvetica, arial, sans-serif;
+  color: #455560;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -59,6 +72,7 @@ li.last { border-right: none !important; }
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
+  background: url('../images/piston-triple-login.png') no-repeat left !important;
 }
 
 input[type="submit"] {
@@ -101,11 +115,10 @@ input[type="submit"]:active { background-position: 0 -105px; }
 /* Header */
 
 #header {
-  background: #000;
-  font-family: "Helvetica", arial, sans-serif;
+  /* font-family: "Helvetica", arial, sans-serif; */
   min-width: 1024px;
   width: 100%;
-  height: 45px;
+  height: 112px;
   float: left;  
 }
 
@@ -115,9 +128,9 @@ h1 {
 }
 
 h1 a{
-  background: url(../images/logo_new.png) no-repeat left !important;
+  background: url(../images/pentos-logo-full.png) no-repeat left !important;
   text-indent: -9999px;
-  width: 115px;
+  width: 227px;
   float: left;
   display: block;
 }
@@ -146,7 +159,7 @@ h1 a{
   display: block;
   position: relative;
   border-top: 5px solid transparent;
-  height: 33px;
+  height: 100px;
 }
 #main_nav li a.active { border-top: 5px solid #8eacb7; }
 #main_nav li a:hover { background: #dff2fa; }
@@ -156,11 +169,11 @@ h1 a{
 
 #user_bar {
   background: #f3faf3;
-  font: 12px "Helvetica", arial, sans-serif;
+  /* font: 12px, trebuchet, "Helvetica", arial, sans-serif; */
   width: 16%;
   min-width: 210px;
-  height: 38px;
-  margin: -45px 0 0 0;
+  height: 105px;
+  margin: -112px 0 0 0;
   padding: 5px 0 0 0;
   float: right; 
   border: 1px solid #d6e4d9;
@@ -170,7 +183,7 @@ h1 a{
   background: #c9ead1;
   min-width: 210px;
   width: 16%;
-  margin: 37px 0 0 0;
+  margin: 60px 0 0 0;
   padding: 12px 0 0 0;
   display: none;
   position: absolute;
@@ -183,7 +196,7 @@ h1 a{
   margin: -5px 0 0 0;
   padding: 12px 0 0 0;
   width: 25px;
-  height: 29px;
+  height: 96px;
   float: right;
   border: 1px solid #d6e4d9;
 }
@@ -201,7 +214,7 @@ a#current_tenant {
 
 #current_tenant h4 {
   font-size: 16px;
-  font-weight: bold;
+  /* font-weight: bold; */
   text-align: left;
   margin: 3px 0 -4px;
 }
@@ -224,7 +237,7 @@ li#sign_out a:hover { color: #406640; }
 
 li.title h4{
   color: #7ab789;
-  font-size: 10px;
+  /* font-size: 10px; */
   text-transform: uppercase;
   margin: -4px 0 0 0;
   padding: 0 0 5px 10px;
@@ -240,7 +253,7 @@ li.title h4{
 }
 
 #sidebar h3 {
-  color: #6a6a6a;
+  color: #455560;
   font: 18px;
   margin: 30px 0 15px 0;
   float: left;
@@ -275,7 +288,7 @@ li.title h4{
 }
 
 #page_header h2 {
-  color: #a3a3a3;
+  color: #455560;
   font-size: 30px;
   margin: 5px 0 0 0;
   float: left;
@@ -475,8 +488,8 @@ td#actions input[type="submit"]:hover { text-decoration: underline; }
 
 .message_box.error { 
   background-color: #ffdbdc;
-  color: #ff8080;
-  border-color: #ff9a99;
+  color: #D10038;
+  border-color: #D10038;
 }
 
 .message_box h2 {
@@ -776,17 +789,31 @@ input:focus, textarea:focus {
   padding: 25px;
   float: left;
   position: relative;
-  border: 1px solid #d2dce1;
+  border: 2px solid #455560;
   -webkit-box-shadow: 0 0  10px rgba(0,0,0,0.2);  
   -moz-box-shadow: 0 0  10px rgba(0,0,0,0.2);
 }
 
-#standalone #login_wrapper {
-  background: url(../images/logo.png) no-repeat center top;
-  width: 373px;
-  margin: 40px auto 0 auto ;
-  padding-top: 91px;
+#login .message_box{
+	min-width: 0px !important;
 }
+
+#standalone #login_wrapper {
+  background: url(../images/piston_dashboard_logo.png) no-repeat center top;
+  width: 400px;
+  margin: 40px auto 0 auto ;
+  padding-top: 120px;
+}
+
+#standalone #built_on_openstack_wrapper {
+  background: url(../images/built-on-openstack-badge.png) no-repeat center top;
+  width: 390px;
+  height: 200px;
+  margin: 10px auto 0 auto;
+  padding: 0px 5px 0px 0px;
+  float: left;
+}
+
 #standalone #login {
   float:left;
   margin: 0 0 0 0;
@@ -819,13 +846,13 @@ input[readonly="readonly"] {
   margin: 0 0 25px 0;
   padding: 5px 5px 5px 5px;
   float: left;
-  border: 1px solid #d2d9dc;
+  border: 1px solid #455560;
 }
-
+/*
 #login input[type="submit"] {
   color: #fff;
   font-size: 12px;
-  background: url(../images/login_btn.png) top left;
+  background: url(../images/piston_login_btn.png) top left;
   width: 87px;
   height: 27px;
   margin: 52px 3px -82px 0;
@@ -834,19 +861,40 @@ input[readonly="readonly"] {
   position: relative;
   cursor: pointer;
   clear: both;
-  border: 1px solid #94c2da;
-  text-shadow: #3d8eaf 1px 1px 1px;
+  border: 1px solid #A8CEC7;
+  text-shadow: #689381 1px 1px 1px;
 }
+*/
+
+#login input[type="submit"] {
+  background: url(../images/pentagon_submit.png) top left;
+  width: 60px;
+  height: 60px;
+  margin: 52px 3px -100px 0;
+  padding: 5px 5px 5px 5px;
+  float: right;
+  position: relative;
+  cursor: pointer;
+  clear: both;
+  border: none !important;
+}
+/*
 #login input[type="submit"]:hover { background-position: 0 -28px; }
 #login input[type="submit"]:active { background-position: 0 -56px; }
+*/
+
+#login input[type="submit"]:hover { background-position: 0 -60px; }
+#login input[type="submit"]:active { background-position: 0 -120px; }
+
 
 #alternate_links {
-  background: #f8f8f8;
+  background: #F3E4A6;
+  /* background: url('../images/piston_login_bg.png') top left; */
   width: 365px;
   margin: 23px 0 -25px -25px;
   padding: 24px 0 25px 25px;
   float: left;
-  border-top: 1px solid #d2d9dc;
+  border-top: 1px solid #455560;
 }
 
 #alternate_links a {
