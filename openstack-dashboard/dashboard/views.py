@@ -44,3 +44,10 @@ def splash(request):
     return shortcuts.render_to_response('splash.html', {
         'form': form,
     }, context_instance=template.RequestContext(request))
+
+
+def pistondownloads(request):
+    return shortcuts.render_to_response('dash_pistondownloads.html', {
+    }, context_instance=template.RequestContext(request))
+
+
