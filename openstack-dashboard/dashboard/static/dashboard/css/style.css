@@ -39,7 +39,7 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
   text-decoration: none;
-  color: #3fb9d3;
+  color: #84939e;
 }
 a:hover { text-decoration: underline; }
 
@@ -163,7 +163,7 @@ h1 a{
 }
 
 #main_nav li a {
-  color: #8eacb7;
+  color: #84939E;
   font-size: 12px; 
   margin: -10px 0 0 0;
   padding: 5px 10px 0;
@@ -173,8 +173,23 @@ h1 a{
   border-top: 5px solid transparent;
   height: 100px;
 }
-#main_nav li a.active { border-top: 5px solid #8eacb7; }
-#main_nav li a:hover { background: #dff2fa; }
+#main_nav li a.active { border-top: 5px solid #84939E; }
+#main_nav li a:hover { background-color: #F7ECC1; }
+
+.pentos_update a{
+  border-top: 5px solid #00a389 !important;
+  border:  solid #00a389 1px ;
+  color: #00a389 !important;
+  background: url(../images/pentagon_alert.png) 35px -80px no-repeat;
+}
+
+.pentos_expired a{
+  border-top: 5px solid #be0f34 !important;
+  border:  solid #be0f34 1px ;
+  color: #be0f34 !important;
+  background: url(../images/pentagon_alert.png) 35px -191px no-repeat;
+}
+
 
 
 /* Tenant Dropdown */
@@ -501,14 +516,14 @@ td#actions input[type="submit"]:hover { text-decoration: underline; }
 }
 
 .message_box, .status_box.info { 
-  background-color: #e8f8ff;
-  color: #7ab6c5;
-  border-color: #9ac7dc;
+  background-color: #bfe8df;
+  color: #00a389;
+  border-color: #00a389;
 }
 .message_box.success { 
-  background-color: #e9ffe8;
-  color: #7ec67b;
-  border-color: #9edd9b;
+  background-color: #f7ecc1;
+  color: #000000;
+  border-color: #deb408;
 }
 .message_box.warning { 
   background-color: #ffffe8;
@@ -517,9 +532,9 @@ td#actions input[type="submit"]:hover { text-decoration: underline; }
 }
 
 .message_box.error { 
-  background-color: #ffdbdc;
-  color: #D10038;
-  border-color: #D10038;
+  background-color: #f3c3be;
+  color: #be0f34;
+  border-color: #be0f34;
 }
 
 .message_box h2 {
@@ -528,7 +543,7 @@ td#actions input[type="submit"]:hover { text-decoration: underline; }
   padding: 20px 20px 20px 20px;  
 }
 
-.message_box.info h2 { color: #2a7380; border-color: #9ac7dc; }
+.message_box.info h2 { color: #00a389; border-color: #00a389; }
 .message_box.good h2 { color: #2e802b; border-color: #9edd9b; }
 .message_box.medium h2 { color: #d1b100; border-color: #ffe37b; }
 .message_box.bad h2 { color: #ea4031; border-color: #ff8080; }
