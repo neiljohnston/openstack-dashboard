@@ -6,6 +6,9 @@
 
       {% if request.user.is_admin %}
       <li><a {% if current_topbar == "syspanel" %} class="active" {% endif %} href="{% url syspanel_overview %}">System Panel</a></li>
+      
+      <li class="pentos_update"><a href="">Update Available</a></li>
+      <li class="pentos_expired"><a href="" >License Expired!</a></li>
       {% endif %}
     {% else %}
       NOT _LOGGED_IN_TOPBAR
