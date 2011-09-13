@@ -217,7 +217,7 @@ h1 a{
 
 a#current_tenant {
   background: #f3faf3;
-  color: #6eaf6e;
+  color: #00a389;
   width: 80%;
   padding: 0 0 0 10px;
   float: left;
@@ -807,9 +807,9 @@ input.example, textarea.example {color: #d9d9d9;}
 input:focus, textarea:focus {
   border-color: #b7b7b7;
   outline: none;
-  box-shadow:0 0 3px #41bad4;
-  -moz-box-shadow:0 0 3px #41bad4;
-  -webkit-box-shadow:0 0 3px #41bad4;
+  box-shadow:0 0 3px #00a389;
+  -moz-box-shadow:0 0 3px #00a389;
+  -webkit-box-shadow:0 0 3px #00a389;
   -webkit-transition-property: -webkit-box-shadow, border-color;
   -webkit-transition-duration: 0.2s;
 }
@@ -853,7 +853,7 @@ input:focus, textarea:focus {
 }
 
 #login .message_box{
-	min-width: 0px !important;
+  min-width: 0px !important;
 }
 
 #standalone #login_wrapper {
@@ -964,6 +964,17 @@ input[readonly="readonly"] {
   clear: both;
 }
 #alternate_links a:hover { color: #989898; }
+
+#standalone .errorlist {
+  color: #fff;
+  background: #ef767d;
+  text-align: center;
+  border: 1px solid #d60004;
+  width: 337px;
+  /* margin: 0 0 10px -20px; */
+  padding: 5px 5px 5px 5px;
+  display: table;
+}
 
 
 /* Containers */

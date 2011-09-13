@@ -30,7 +30,7 @@ DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 SITE_ID = 1
-SITE_BRANDING = 'OpenStack'
+SITE_BRANDING = 'Piston Enterprise OS'
 SITE_NAME = 'openstack'
 ENABLE_VNC = True
 
