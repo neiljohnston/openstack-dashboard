@@ -1,0 +1,21 @@
+{% extends 'dash_base.html' %}
+
+{% block sidebar %}
+  {% with current_sidebar="pistondownloads" %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{% block page_header %}
+  {% url dash_pistondownloads request.user.tenant as refresh_link %}
+  {# to make searchable false, just remove it from the include statement #}
+  {% include "_page_header.html" with title="Piston Tools Downloads" refresh_link=refresh_link %}
+{% endblock page_header %}
+
+{% block dash_main %}
+    <div class="message_box info">
+      <h2>Info: Piston Downloads Page</h2>
+      <p>There are currently no downloads.</p>
+    </div>
+    <p>Needs link to Tools and Images Downloads stored in local cloud after set-up.</p>
+{% endblock %}

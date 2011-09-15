@@ -1,0 +1,20 @@
+{% extends 'dash_base.html' %}
+
+{% block sidebar %}
+  {% with current_sidebar="pistonupdates" %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{% block page_header %}
+  {% url dash_pistonupdates request.user.tenant as refresh_link %}
+  {# to make searchable false, just remove it from the include statement #}
+  {% include "_page_header.html" with title="PentOS Updates" refresh_link=refresh_link %}
+{% endblock page_header %}
+
+{% block dash_main %}
+    <div class="message_box info">
+      <h2>Info: PentOS Updates</h2>
+      <p>There is currently no update mechanism.</p>
+    </div>
+{% endblock %}
