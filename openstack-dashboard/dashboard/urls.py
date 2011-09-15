@@ -37,7 +37,8 @@ urlpatterns = patterns('',
         name='dash_overview'),
     url(r'^syspanel/$', 'django_openstack.syspanel.views.instances.usage',
         name='syspanel_overview'),
-    url(r'^pistondownloads/$', 'dashboard.views.pistondownloads', name='dash_pistondownloads')
+    url(r'^pistondownloads/$', 'dashboard.views.pistondownloads', name='dash_pistondownloads'),
+    url(r'^pistonupdates/$', 'dashboard.views.pistonupdates', name='dash_pistonupdates')
 )
 
 # Development static app and project media serving using the staticfiles app.
@@ -47,6 +48,11 @@ urlpatterns += staticfiles_urlpatterns()
 # development. Only active if DEBUG==True and the URL prefix is a local
 # path. Production media should NOT be served by Django.
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# urlpatterns += patterns('dashboard.views.pistonupdates',
+#    url(r'^(?P<tenant_id>[^/]+)/dash_pistonupdates/$', 'index', name='dash_pistonupdates'),
+# )
+
 
 # NOTE(termie): just append them since we want the routes at the root
 urlpatterns += django_openstack_urls.urlpatterns

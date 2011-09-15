@@ -42,3 +42,15 @@ def swift(request):
 
 def quantum(request):
     return {'quantum_configured': settings.QUANTUM_ENABLED}
+
+
+def update(request):
+    return {'update': {'available': '1.0'}}
+
+
+def fake(request):
+    return {'fake': {'available': '1.0'}}
+
+
+def downloads(request):
+    return {'downloads': {'available': '1.0'}}

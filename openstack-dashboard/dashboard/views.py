@@ -29,6 +29,7 @@ from django_openstack import api
 from django_openstack.auth import views as auth_views
 
 
+
 @vary.vary_on_cookie
 def splash(request):
     if request.user:
@@ -40,7 +41,6 @@ def splash(request):
     form, handled = auth_views.Login.maybe_handle(request)
     if handled:
         return handled
-
     return shortcuts.render_to_response('splash.html', {
         'form': form,
     }, context_instance=template.RequestContext(request))
@@ -48,6 +48,11 @@ def splash(request):
 
 def pistondownloads(request):
     return shortcuts.render_to_response('dash_pistondownloads.html', {
+    }, context_instance=template.RequestContext(request))
+
+
+def pistonupdates(request):
+    return shortcuts.render_to_response('dash_pistonupdates.html', {
     }, context_instance=template.RequestContext(request))
 
 
