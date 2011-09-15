@@ -27,6 +27,8 @@ from openstackx.api import exceptions as api_exceptions
 LOG = logging.getLogger('openstack_dashboard')
 
 
+
+
 class DashboardLogUnhandledExceptionsMiddleware(object):
     def process_exception(self, request, exception):
         if isinstance(exception, api_exceptions.NotFound):

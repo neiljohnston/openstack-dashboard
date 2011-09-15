@@ -38,3 +38,12 @@ def tenants(request):
 
 def swift(request):
     return {'swift_configured': settings.SWIFT_ENABLED}
+
+def update(request):
+    return {'update': {'available': '1.0'}}
+	
+def fake(request):
+	return {'fake': {'available': '1.0'}}
+	
+def downloads(request):
+    return {'downloads': {'available': '1.0'}}

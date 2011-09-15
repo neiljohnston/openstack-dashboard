@@ -181,13 +181,12 @@ def usage(request, tenant_id=None):
     instances = running_instances
     if show_terminated:
         instances += terminated_instances
-
     return shortcuts.render_to_response('dash_usage.html', {
         'usage': usage,
         'ram_unit': ram_unit,
         'total_ram': total_ram,
         'show_terminated': show_terminated,
-        'instances': instances
+        'instances': instances,
     }, context_instance=template.RequestContext(request))
 
 

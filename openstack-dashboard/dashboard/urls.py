@@ -34,8 +34,14 @@ urlpatterns = patterns('',
     url(r'^$', 'dashboard.views.splash', name='splash'),
     url(r'^dash/$', 'django_openstack.dash.views.instances.usage', name='dash_overview'),
     url(r'^syspanel/$', 'django_openstack.syspanel.views.instances.usage', name='syspanel_overview'),
-    url(r'^pistondownloads/$', 'dashboard.views.pistondownloads', name='dash_pistondownloads')
+    url(r'^pistondownloads/$', 'dashboard.views.pistondownloads', name='dash_pistondownloads'),
+    url(r'^pistonupdates/$', 'dashboard.views.pistonupdates', name='dash_pistonupdates')
 )
+
+
+# urlpatterns += patterns('dashboard.views.pistonupdates',
+#    url(r'^(?P<tenant_id>[^/]+)/dash_pistonupdates/$', 'index', name='dash_pistonupdates'),
+# )
 
 
 # NOTE(termie): just append them since we want the routes at the root
