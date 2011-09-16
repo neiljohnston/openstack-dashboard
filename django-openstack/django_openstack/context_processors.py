@@ -39,18 +39,61 @@ def tenants(request):
 def swift(request):
     return {'swift_configured': settings.SWIFT_ENABLED}
 
-
 def quantum(request):
     return {'quantum_configured': settings.QUANTUM_ENABLED}
 
 
-def update(request):
-    return {'update': {'available': '1.0'}}
+def pentos(request):
+    #JSON Payload
+
+    #'release':{'version' : '1.0',
+    # 'uri' : 'http://updates.pistoncloud.com/update-releasetimestamp.tar',
+    # 'notes' : 'Release notes for display in UI',
+    # 'release_date' : 'human readable release date',
+    # 'release_timestamp' : '1316154243',
+    # 'checksum', '4038471504',
+    # 'manifest', 'not currently in use'
+    #}
+
+    updateurl = 'updates.pistoncloud.com'
+    updatemsg = 'Update Message'
+
+    #Default states - Revise for prod.
+    update = True
+    version = '1.0'
+    timestamp = ''
+    licensed = False
+    releasenote = ''
+
+    #Update Path
+
+    #Pull current PentOS version from existing arista/cluster
+    install_version = '0.0'
+    #Pull latest PentOS version from updates.pistoncloud.com
+
+    #request for current verson info
+    version = '1.1'
+    #parse version response
+    #compare install version to current
 
 
-def fake(request):
-    return {'fake': {'available': '1.0'}}
+
+    return {'pentos': {
+        'update': update,
+        'version': version,
+        'releasenote': releasenote,
+        'timestamp': timestamp,
+        'licensed': licensed,
+        },
+    }
 
 
-def downloads(request):
-    return {'downloads': {'available': '1.0'}}
+def piston(request):
+    extendedtools = True
+    datatracking = False
+
+    return {'piston': {
+        'extendedtools': extendedtools,
+        'datatracking': datatracking,
+       },
+    }

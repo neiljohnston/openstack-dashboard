@@ -7,12 +7,12 @@
       {% if request.user.is_admin %}
       <li><a {% if current_topbar == "syspanel" %} class="active" {% endif %} href="{% url syspanel_overview %}">System Panel</a></li>
 
-          {% if update.available %}
-          <li class="pentos_update"><a href="">Update {{update.available}} Available</a></li>
+          {% if pentos.update %}
+          <li class="pentos_update"><a href="{% url dash_pistonupdates %}">Update {{pentos.version}} Available</a></li>
           {% endif %}
           
-          {% if downloads.available %}
-          <li class="pentos_expired"><a href="" >License Expired!</a></li>
+          {% if not pentos.licensed %}
+          <li class="pentos_expired"><a href="{% url dash_pistonexpired %}">License Expired!</a></li>
           {% endif %}
           
       {% endif %}
