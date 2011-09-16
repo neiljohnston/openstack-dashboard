@@ -55,4 +55,6 @@ def pistonupdates(request):
     return shortcuts.render_to_response('dash_pistonupdates.html', {
     }, context_instance=template.RequestContext(request))
 
-
+def pistonexpired(request):
+    return shortcuts.render_to_response('dash_pistonexpired.html', {
+    }, context_instance=template.RequestContext(request))

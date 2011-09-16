@@ -35,7 +35,8 @@ urlpatterns = patterns('',
     url(r'^dash/$', 'django_openstack.dash.views.instances.usage', name='dash_overview'),
     url(r'^syspanel/$', 'django_openstack.syspanel.views.instances.usage', name='syspanel_overview'),
     url(r'^pistondownloads/$', 'dashboard.views.pistondownloads', name='dash_pistondownloads'),
-    url(r'^pistonupdates/$', 'dashboard.views.pistonupdates', name='dash_pistonupdates')
+    url(r'^pistonupdates/$', 'dashboard.views.pistonupdates', name='dash_pistonupdates'),
+    url(r'^pistonexipred/$', 'dashboard.views.pistonexpired', name='dash_pistonexpired'),
 )
 
 
