@@ -94,7 +94,7 @@ def pentos(request):
     entitlement_key_path = './pentossupport/'
     entitlement_key_name = 'entitlement.key'
     current_install_key_path = './pentossupport/'
-    current_install_key_name = 'entitlement.keyx'
+    current_install_key_name = 'entitlement.key'
     revisionurl = 'http://onewheeldrive.net/release.json' #'http://updates.pistoncloud.com/'
     update_available = False
     entitled = False
