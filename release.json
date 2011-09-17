@@ -1,1 +1,0 @@
-'release':{'version' : '1.0',    'uri' : 'http://updates.pistoncloud.com/update-releasetimestamp.tar',    'notes' : 'Release notes for display in UI',    'release_date' : 'human readable release date',    'release_timestamp' : '1316154243',    'checksum': '4038471504',    'manifest': 'not currently in use'    }

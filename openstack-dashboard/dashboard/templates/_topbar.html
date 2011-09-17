@@ -11,7 +11,7 @@
           <li class="pentos_update"><a href="{% url dash_pistonupdates %}">Update {{pentos.version}} Available</a></li>
           {% endif %}
           
-          {% if not pentos.licensed %}
+          {% if not pentos.entitled %}
           <li class="pentos_expired"><a href="{% url dash_pistonexpired %}">License Expired!</a></li>
           {% endif %}
           
