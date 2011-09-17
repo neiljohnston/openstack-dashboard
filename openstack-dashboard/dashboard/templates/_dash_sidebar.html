@@ -18,7 +18,4 @@
     <li><a {% if current_sidebar == "containers" %} class="active" {% endif %} href="{% url dash_containers request.user.tenant %}">Containers</a></li>
   </ul>
   {% endif %}
-  
-  
-    <h3>Data Tracking: {% if piston.datatracking %}On{% else %}OFF{% endif %}</h3>
 </div>
