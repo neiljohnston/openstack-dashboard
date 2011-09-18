@@ -9,9 +9,22 @@
 {% block page_header %}
   {% url dash_pistonupdates request.user.tenant as refresh_link %}
   {# to make searchable false, just remove it from the include statement #}
-  {% include "_page_header.html" with title="PentOS Updates" refresh_link=refresh_link %}
+  {%include "_page_header.html" with title="PentOS Update" refresh_link=refresh_link %}
 {% endblock page_header %}
 
 {% block dash_main %}
-
+<div>
+<h2>Piston PentOS Version {{pentos.version}} - {{pentos.release_title}}</h2>
+<p>Piston PentOS Version {{pentos.version}} - {{pentos.release_title}} is now available and ready to upgrade your system automatically.</p>
+<p>{{pentos.release_title}} Provides the following enhancements and fixes:</p>
+<div class="message_box info"><h2>Release Notes:</h2><p>{{pentos.notes}}</p></div>
+<p>Please: <a href="#">Activate Installation Process</a>
+<h2>Summary:</h2>
+<p>
+Version: {{pentos.version}}<br/>
+Release Title: {{pentos.release_title}}<br/>
+Download UIR: {{pentos.uri}}<br/>
+Release Notes: {{pentos.notes}}<br/>
+Release Date: {{pentos.release_date}}<br/>
+</p>
 {% endblock %}

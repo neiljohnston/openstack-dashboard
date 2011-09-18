@@ -1,0 +1,17 @@
+{% extends 'dash_base.html' %}
+
+{% block sidebar %}
+  {% with current_sidebar="pistonfeedback" %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{% block page_header %}
+  {% url dash_feedback request.user.tenant as refresh_link %}
+  {# to make searchable false, just remove it from the include statement #}
+  {% include "_page_header.html" with title="Piston Feedback" refresh_link=refresh_link %}
+{% endblock page_header %}
+
+{% block dash_main %}
+<iframe src="http://issues.pistoncc.com/projects/public-bugs/issues/new" scrolling="no"/>
+{% endblock %}
