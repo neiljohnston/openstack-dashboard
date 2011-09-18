@@ -198,7 +198,7 @@ h1 a{
   background: #f3faf3;
   /* font: 12px, trebuchet, "Helvetica", arial, sans-serif; */
   width: 16%;
-  min-width: 210px;
+  min-width: 185px;
   height: 105px;
   margin: -112px 0 0 0;
   padding: 5px 0 0 0;
@@ -395,6 +395,11 @@ label.refreshOption {
   padding: 20px 20px 20px 20px;
 }
 
+.main_content iframe{
+    height: 630px;
+    width: 100%;
+    overflow: none;
+}
 
 /* Tables */
 

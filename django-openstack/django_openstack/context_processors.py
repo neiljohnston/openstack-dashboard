@@ -91,11 +91,17 @@ def getTimestamp(request, filepath):
 
 
 def pentos(request):
-    entitlement_key_path = './pentossupport/'
+    entitlement_key_path = './pentossupport/' #Replace for non-local env
+    # /mnt/big/
     entitlement_key_name = 'entitlement.key'
-    current_install_key_path = './pentossupport/'
+
+    # /mnt/big/
+    current_install_key_path = './pentossupport/' #Replace for non-local env
     current_install_key_name = 'entitlement.key'
-    revisionurl = 'http://onewheeldrive.net/release.json' #'http://updates.pistoncloud.com/'
+
+    # this will be hosted on updates.pistoncloud.com
+    revisionurl = 'http://onewheeldrive.net/release.json' #'http://updates.pistoncloud.com/release.json'
+
     update_available = False
     entitled = False
 
@@ -106,6 +112,7 @@ def pentos(request):
     # 'uri' : 'http://updates.pistoncloud.com/update-releasetimestamp.tar',
     # 'notes' : 'Release notes for display in UI',
     # 'release_date' : 'human readable release date',
+    # 'release_title' : 'Morgenstern'
     # 'release_timestamp' : '1316154243',
     # 'checksum': '4038471504',
     # 'manifest': 'not currently in use'
@@ -132,8 +139,6 @@ def pentos(request):
         # Set Default UI behaviour for Entitlement if an OSError is thrown reaching entitlement key
         entitled = False
 
-    releaseJSON.update(entitled = entitled)
-
 
     # *************************************************************
     #  Update Logic
@@ -141,7 +146,7 @@ def pentos(request):
     #request JSON describing latest PentOS release from updates.piston.com
     release_timestamp = releaseJSON['release_timestamp']
     #messages.info(request, "release_timestamp:  %s" % release_timestamp)
-    # Pull current PentOS intalls timestamp from existing arista/cluster
+    # Get current PentOS intalls timestamp from existing arista/cluster
     installed_pentos_timestamp = getTimestamp(request, current_install_key_path + current_install_key_name)
     if installed_pentos_timestamp:
         #compare timestamps, note they need to be converted to floats
@@ -150,16 +155,24 @@ def pentos(request):
     else:
         # Set Default UI behaviour if an OSError occures reaching PentOS Install Timestamp
         update_available = False
+
+    # DEBUG OVERRIDE
+    update_available = True
+    entitled = False
+
+    releaseJSON.update(entitled = entitled)
     releaseJSON.update(update=update_available)
 
-    #dump release info to UI for debug/testing
-    messages.info(request, "releaseJSON:  %s" % releaseJSON)
+    # messages.info(request, "releaseJSON:  %s" % releaseJSON)
     return {'pentos': releaseJSON}
 
 
 def piston(request):
+    pentosJSON = '/mnt/big/pentos.json' #Anticipated
+
     extendedtools = True
     datatracking = False
+
 
     return {'piston': {
         'extendedtools': extendedtools,
