@@ -168,14 +168,30 @@ def pentos(request):
 
 
 def piston(request):
-    pentosJSON = '/mnt/big/pentos.json' #Anticipated
-
     extendedtools = True
+    # pentosJSONpath = '/mnt/big/pentos.json' #Anticipated
+    pentosJSONpath = './pentossupport/pentos.json' #Current
+
+    try:
+        pentosfile = open(pentosJSONpath, 'r')
+        pentosJSON = json.load(pentosfile)
+        pentosfile.close()
+        if pentosJSON['expanded_tools_download'] == True:
+            # This catch expanded_tools_download when it's explicitely true
+            extendedtools = pentosJSON['expanded_tools_download']
+        else:
+            # Account for config error if expanded_tools_download is invalid
+            # by defaulting to hiding the tools link
+            messages.error(request, "Your expanded_tools_download configuration may be incorrect, please validate.")
+            extendedtools = False
+    except IOError, e:
+        messages.error(request, "IOError:  %s" % e)
+        extendedtools = False
+
     datatracking = False
-
-
     return {'piston': {
-        'extendedtools': extendedtools,
+        'expanded_tools_download': extendedtools,
+        'tools_download_uri': pentosJSON['tools_download_uri'],
         'datatracking': datatracking,
        },
     }
