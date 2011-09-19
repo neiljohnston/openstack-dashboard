@@ -188,7 +188,7 @@ h1 a{
   width: 16%;
   min-width: 185px;
   height: 105px;
-  margin: -112px 0 0 0;
+  margin: -113px 0 0 0;
   padding: 5px 0 0 0;
   float: right; 
   border: 1px solid #d6e4d9;
@@ -366,7 +366,7 @@ a.refresh:hover { background-position: left -19px; }
 }
 
 .main_content iframe{
-    height: 630px;
+    height: 730px;
     width: 100%;
     overflow: none;
 }
@@ -515,20 +515,21 @@ td#actions input[type="submit"]:hover { text-decoration: underline; }
 .message_box h2 {
   float: left;
   min-width: 120px;
-  padding: 20px 20px 20px 20px;  
+  max-width: 300px;
+  padding: 20px 20px 20px 20px; 
+  border-right: 1px solid;
 }
 
-.message_box.info h2 { color: #00a389; border-color: #00a389; }
+.message_box.info h2 { color: #00a389; border-color: #00a389;}
 .message_box.good h2 { color: #2e802b; border-color: #9edd9b; }
 .message_box.medium h2 { color: #d1b100; border-color: #ffe37b; }
 .message_box.bad h2 { color: #ea4031; border-color: #ff8080; }
 
 .message_box p {
   font-size: 14px;
-  width: 500px;
+  /* width: 500px; */
   padding: 20px;
-  float: left;
-  border-left: 1px solid;
+  float: left; 
 }
 
 /* Status Box */
