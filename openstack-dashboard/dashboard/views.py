@@ -23,10 +23,12 @@ Views for home page.
 """
 from django import template
 from django import shortcuts
+from django import forms
 from django.views.decorators import vary
 
 from django_openstack import api
 from django_openstack.auth import views as auth_views
+from django.contrib import messages
 
 
 
@@ -50,10 +52,15 @@ def pistondownloads(request):
     return shortcuts.render_to_response('dash_pistondownloads.html', {
     }, context_instance=template.RequestContext(request))
 
-
 def pistonupdates(request):
-    return shortcuts.render_to_response('dash_pistonupdates.html', {
-    }, context_instance=template.RequestContext(request))
+    # Is this the right place for the code activation?
+    if request.method == 'POST':
+        messages.info(request, "Update Activated.")
+        return shortcuts.render_to_response('dash_pistonupdating.html', {
+        }, context_instance=template.RequestContext(request))
+    else:
+        return shortcuts.render_to_response('dash_pistonupdates.html', {
+        }, context_instance=template.RequestContext(request))
 
 def pistonexpired(request):
     return shortcuts.render_to_response('dash_pistonexpired.html', {
