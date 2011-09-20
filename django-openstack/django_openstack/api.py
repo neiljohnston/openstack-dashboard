@@ -50,6 +50,8 @@ import openstackx.auth
 from novaclient.v1_1 import client
 import quantum.client
 from urlparse import urlparse
+from django.contrib import messages
+
 
 LOG = logging.getLogger('django_openstack.api')
 
