@@ -666,7 +666,7 @@ td#actions input[type="submit"]:hover { text-decoration: underline; }
 
 #date_form input[type="submit"] {
   font-size: 11px;
-  padding: 5px 10px 20px;
+  padding: 5px 10px 5px;
   cursor: pointer;
 }
 
