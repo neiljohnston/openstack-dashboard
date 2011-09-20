@@ -3,17 +3,6 @@
 /* General/Misc */
 
 @font-face {
-  font-family: 'anivers';
-  src: url('Anivers_Regular-webfont.eot');
-  src: url('Anivers_Regular-webfont.eot?iefix') format('eot'),
-       url('Anivers_Regular-webfont.woff') format('woff'),
-       url('Anivers_Regular-webfont.ttf') format('truetype'),
-       url('Anivers_Regular-webfont.svg#webfont3JLVF59W') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
     font-family: 'OratorStdMedium';
     src: url('oratorstd-webfont.eot');
     src: url('oratorstd-webfont.eot?#iefix') format('embedded-opentype'),
@@ -371,6 +360,21 @@ a.refresh:hover { background-position: left -19px; }
     overflow: none;
 }
 
+.main_content p{
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.main_content input[type="submit"] {
+  color: #6a6a6a;
+  font-size: 12px;
+  text-align: center;
+  width: auto;
+  height: auto;
+  padding: 10px 10px 10px 10px;
+  float: left;
+}
+
 /* Tables */
 
 .table_title {
@@ -516,8 +520,7 @@ td#actions input[type="submit"]:hover { text-decoration: underline; }
   float: left;
   min-width: 120px;
   max-width: 300px;
-  padding: 20px 20px 20px 20px; 
-  border-right: 1px solid;
+  padding: 20px 20px 20px 20px;
 }
 
 .message_box.info h2 { color: #00a389; border-color: #00a389;}
@@ -527,6 +530,7 @@ td#actions input[type="submit"]:hover { text-decoration: underline; }
 
 .message_box p {
   font-size: 14px;
+  border-left: 1px solid;
   /* width: 500px; */
   padding: 20px;
   float: left; 
@@ -869,23 +873,6 @@ input[readonly="readonly"] {
   float: left;
   border: 1px solid #455560;
 }
-/*
-#login input[type="submit"] {
-  color: #fff;
-  font-size: 12px;
-  background: url(../images/piston_login_btn.png) top left;
-  width: 87px;
-  height: 27px;
-  margin: 52px 3px -82px 0;
-  padding: 5px 5px 5px 5px;
-  float: right;
-  position: relative;
-  cursor: pointer;
-  clear: both;
-  border: 1px solid #A8CEC7;
-  text-shadow: #689381 1px 1px 1px;
-}
-*/
 
 #login input[type="submit"] {
   background: url(../images/pentagon_submit.png) top left;
