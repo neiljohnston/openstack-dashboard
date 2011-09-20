@@ -46,6 +46,8 @@ import openstackx.api.exceptions as api_exceptions
 import openstackx.extras
 import openstackx.auth
 from urlparse import urlparse
+from django.contrib import messages
+
 
 
 LOG = logging.getLogger('django_openstack.api')
@@ -639,7 +641,7 @@ class GlobalSummary(object):
         except api_exceptions.ApiException, e:
             LOG.error('ApiException fetching service list in instance usage',
                       exc_info=True)
-            messages.error(request,
+            messages.error(self.request,
                            'Unable to get service info: %s' % e.message)
             return
 
@@ -658,7 +660,7 @@ class GlobalSummary(object):
                       ' on date range "%s to %s"' % (datetime_start,
                                                      datetime_end),
                       exc_info=True)
-            messages.error(request, 'Unable to get usage info: %s' % e.message)
+            messages.error(self.request, 'Unable to get usage info: %s' % e.message)
             return
 
         for usage in self.usage_list:
