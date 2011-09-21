@@ -69,9 +69,13 @@ def pistonupdates(request):
         messages.info(request, "Checksum: %s" % pentos_checksum)
         
         # Build Update Command
+        # update_cmd defined at:
+        # https://github.com/novas0x2a/savage/blob/update-service/savage/command/commands/arista.py#L99
         update_cmd = json.dumps({'update': True, 'url': pentos_uri, 'checksum': pentos_checksum})
         # messages.info(request, "update_cmd: %s" % update_cmd)
 
+        # Execute Update Call
+        # as lifted from: https://github.com/novas0x2a/savage/blob/update-service/tests/test_updater.py#L133
         #with zeromq.InterruptingChild() as child:
         #    reply = json.loads(child.send_recv(update_cmd))
         #    time.sleep(0.3) # let it finish...
