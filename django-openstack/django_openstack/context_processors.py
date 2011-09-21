@@ -162,7 +162,6 @@ def pentos(request):
 
     releaseJSON.update(entitled = entitled)
     releaseJSON.update(update=update_available)
-
     # messages.info(request, "releaseJSON:  %s" % releaseJSON)
     return {'pentos': releaseJSON}
 

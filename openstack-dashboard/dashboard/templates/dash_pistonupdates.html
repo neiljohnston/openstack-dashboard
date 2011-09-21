@@ -21,13 +21,16 @@
 Version: {{pentos.version}}<br/>
 Release Title: {{pentos.release_title}}<br/>
 Download UIR: {{pentos.uri}}<br/>
+Download Checksum: {{pentos.checksum}}<br/>
 Release Notes: {{pentos.notes}}<br/>
 Release Date: {{pentos.release_date}}<br/>
 </p>
 <br/>
 <p>
   <form action="" method="post">{% csrf_token %}
-  <input type="submit" value="Activate Installation Process"></input>
+    <input name="pentos_uri" type="hidden" value="{{pentos.uri}}" />
+    <input name="pentos_checksum" type="hidden" value="{{pentos.checksum}}" />
+    <input type="submit" value="Activate Installation Process" name="submit" />
   </form>
 </p>
 {% endblock %}
