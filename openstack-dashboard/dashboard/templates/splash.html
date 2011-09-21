@@ -10,6 +10,12 @@
   <body id="standalone">
     <div id="login_wrapper">
       <div class='large-rounded' id='login'>
+        {%if not pentos.entitled %}
+        <div class="message_box error">
+          <h2>Alert</h2>
+          <p>PentOS Entitlement Expired!<br/>Please <a href="{{piston_contact}}">contact</a> Piston Cloud Computing. </p>
+        </div>
+        {% endif %}
         
         
         {% include "_messages.html" %}

@@ -32,6 +32,8 @@ from django.contrib import messages
 from openstackx.api import exceptions as api_exceptions
 
 
+
+
 def tenants(request):
     if not request.user or not request.user.is_authenticated():
         return {}
@@ -160,7 +162,6 @@ def pentos(request):
     
     releaseJSON.update(entitled = entitled)
     releaseJSON.update(update=update_available)
-    
     # messages.info(request, "releaseJSON:  %s" % releaseJSON)    
     return {'pentos': releaseJSON}
     

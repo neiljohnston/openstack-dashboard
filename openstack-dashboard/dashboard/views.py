@@ -30,6 +30,13 @@ from django_openstack import api
 from django_openstack.auth import views as auth_views
 from django.contrib import messages
 
+from django import forms
+
+import json
+
+#from savage.network import zeromq
+
+piston_contact = 'http://dev.pistoncloud.com/Contact'
 
 
 @vary.vary_on_cookie
@@ -55,7 +62,23 @@ def pistondownloads(request):
 def pistonupdates(request):
     # Is this the right place for the code activation?
     if request.method == 'POST':
-        messages.info(request, "Update Activated.")
+        postreturned = request.POST
+        pentos_uri = postreturned.get('pentos_uri')
+        pentos_checksum = postreturned.get('pentos_checksum')
+        messages.info(request, "URI: %s" % pentos_uri)
+        messages.info(request, "Checksum: %s" % pentos_checksum)
+        
+        # Build Update Command
+        update_cmd = json.dumps({'update': True, 'url': pentos_uri, 'checksum': pentos_checksum})
+        # messages.info(request, "update_cmd: %s" % update_cmd)
+
+        #with zeromq.InterruptingChild() as child:
+        #    reply = json.loads(child.send_recv(update_cmd))
+        #    time.sleep(0.3) # let it finish...
+        #    reply = json.loads(child.send_recv(status_cmd))
+        #    self.assertEquals(reply['status'], 'complete')
+        #    self.assertEquals(file(self.output_file.name, 'rb').read(), 'rawr\n')
+        
         return shortcuts.render_to_response('dash_pistonupdating.html', {
         }, context_instance=template.RequestContext(request))
     else:
@@ -69,3 +92,7 @@ def pistonexpired(request):
 def pistonfeedback(request):
     return shortcuts.render_to_response('dash_pistonfeedback.html', {
     }, context_instance=template.RequestContext(request))
+    
+
+    
+    
