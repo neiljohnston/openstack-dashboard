@@ -94,7 +94,7 @@ def usage(request):
     return render_to_response(
     'syspanel_usage.html',{
         'dateform': dateform,
-        #'usage_list': global_summary.usage_list, #<------------------------------------------------------------------<<<<<<<<<<<
+        'usage_list': global_summary.usage_list, #<------------------------------------------------------------------<<<<<<<<<<<
         'global_summary': global_summary.summary,
         'external_links': settings.EXTERNAL_MONITORING,
     }, context_instance = template.RequestContext(request))
