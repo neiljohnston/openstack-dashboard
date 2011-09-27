@@ -157,8 +157,8 @@ def pentos(request):
         update_available = False
 
     # DEBUG OVERRIDE
-    update_available = True
-    entitled = False
+    # update_available = True
+    # entitled = False
 
     releaseJSON.update(entitled = entitled)
     releaseJSON.update(update=update_available)
