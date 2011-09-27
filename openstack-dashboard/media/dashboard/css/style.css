@@ -110,7 +110,8 @@ input[type="submit"]:active { background-position: 0 -105px; }
   min-width: 1024px;
   width: 100%;
   height: 112px;
-  float: left;  
+  float: left;
+  background: url(../images/honeycomb_tile.jpg);
 }
 
 h1 {
@@ -127,7 +128,7 @@ h1 a{
 }
 
 #main_nav {
-  background: #f3f8fa;
+  /* background: #f3f8fa; */
   text-transform: uppercase;
   min-width: 800px;
   width: 84%;
@@ -178,7 +179,7 @@ h1 a{
   /* font: 12px, trebuchet, "Helvetica", arial, sans-serif; */
   width: 16%;
   min-width: 185px;
-  height: 105px;
+  height: 106px;
   margin: -113px 0 0 0;
   padding: 5px 0 0 0;
   float: right; 
@@ -819,6 +820,7 @@ input:focus, textarea:focus {
   border: 2px solid #455560;
   -webkit-box-shadow: 0 0  10px rgba(0,0,0,0.2);  
   -moz-box-shadow: 0 0  10px rgba(0,0,0,0.2);
+  background: url(../images/piston_dashboard_logo.png) no-repeat center top; 
 }
 
 #login .message_box{
@@ -826,7 +828,6 @@ input:focus, textarea:focus {
 }
 
 #standalone #login_wrapper {
-  background: url(../images/piston_dashboard_logo.png) no-repeat center top;
   width: 400px;
   margin: 40px auto 0 auto ;
   padding-top: 120px;
