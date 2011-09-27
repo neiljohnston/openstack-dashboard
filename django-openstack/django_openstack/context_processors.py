@@ -101,6 +101,7 @@ def pentos(request):
 
     # this will be hosted on updates.pistoncloud.com
     revisionurl = 'http://dev.pistoncloud.com/scripts/release.js' #Anticipated 'http://updates.pistoncloud.com/release.json'
+
     update_available = False
     entitled = False
 
@@ -165,7 +166,7 @@ def pentos(request):
 
     releaseJSON.update(entitled = entitled)
     releaseJSON.update(update=update_available)
-    messages.info(request, "releaseJSON:  %s" % releaseJSON)
+    #messages.info(request, "releaseJSON:  %s" % releaseJSON)
     return {'pentos': releaseJSON}
 
 
