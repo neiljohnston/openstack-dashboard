@@ -91,8 +91,8 @@ def getTimestamp(request, filepath):
 
 
 def pentos(request):
-    entitlement_key_path = './pentossupport/' #Replace for non-local env
     # /mnt/big/
+    entitlement_key_path = './pentossupport/' #Replace for non-local env
     entitlement_key_name = 'entitlement.key'
     
     # /mnt/big/
@@ -100,7 +100,7 @@ def pentos(request):
     current_install_key_name = 'entitlement.key'
     
     # this will be hosted on updates.pistoncloud.com
-    revisionurl = 'http://onewheeldrive.net/release.json' #'http://updates.pistoncloud.com/release.json'
+    revisionurl = 'http://dev.pistoncloud.com/scripts/release.js' #Anticipated 'http://updates.pistoncloud.com/release.json'
     
     update_available = False
     entitled = False
@@ -118,13 +118,6 @@ def pentos(request):
     # 'manifest': 'not currently in use'
     #}
     
-    JSONstring = getJSONasString(request, revisionurl)
-    # Convert response to JSON
-    if not JSONstring:
-        messages.info(request, "No JSON Returned")
-        return{}
-    releaseJSON = json.loads(JSONstring)
-    
     
     # *************************************************************
     #  Entitlement Handling
@@ -140,9 +133,22 @@ def pentos(request):
         entitled = False
 
 
+
+
     # *************************************************************
     #  Update Logic
     # *************************************************************
+    
+    JSONstring = getJSONasString(request, revisionurl)
+    # Convert response to JSON
+    if not JSONstring:
+        messages.info(request, "No JSON Returned")
+        #Load dummy JSON for pass through
+        JSONstring ='{"version" : "1.0", "uri" : "http://updates.pistoncloud.com/update-releasetimestamp.tar", "notes" : "Release notes for display in UI", "release_date" : "September 27th, 2011", "release_title" : "Morgenstern", "release_timestamp" : "1316154243.0", "checksum": "4038471504", "manifest": "not currently in use"}'
+        update_available = False
+
+    releaseJSON = json.loads(JSONstring)
+    
     #request JSON describing latest PentOS release from updates.piston.com
     release_timestamp = releaseJSON['release_timestamp']
     #messages.info(request, "release_timestamp:  %s" % release_timestamp)
@@ -162,7 +168,7 @@ def pentos(request):
     
     releaseJSON.update(entitled = entitled)
     releaseJSON.update(update=update_available)
-    # messages.info(request, "releaseJSON:  %s" % releaseJSON)    
+    messages.info(request, "releaseJSON:  %s" % releaseJSON)    
     return {'pentos': releaseJSON}
     
 
