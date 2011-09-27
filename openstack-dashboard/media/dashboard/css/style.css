@@ -160,14 +160,14 @@ h1 a{
   border-top: 5px solid #00a389 !important;
   border:  solid #00a389 1px ;
   color: #00a389 !important;
-  background: url(../images/pentagon_alert.png) 52px -80px no-repeat;
+  background: url(../images/pentagon_alert.png) 52px -80px no-repeat #dae0e4;
 }
 
 .pentos_expired a{
   border-top: 5px solid #be0f34 !important;
   border:  solid #be0f34 1px ;
   color: #be0f34 !important;
-  background: url(../images/pentagon_alert.png) 35px -191px no-repeat;
+  background: url(../images/pentagon_alert.png) 35px -191px no-repeat #fcedeb;
 }
 
 
