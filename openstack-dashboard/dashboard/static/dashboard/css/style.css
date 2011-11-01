@@ -323,7 +323,7 @@ li.title h4{
 #page_header .search { float: left; }
 
 .search form label {
-  background: #fff url(../../piston/images/search.png) no-repeat 10px;
+  background: #fff url(../../dashboard/images/search.png) no-repeat 10px;
   text-indent: -9999px;
   width: 16px;
   height: 16px;
@@ -334,7 +334,7 @@ li.title h4{
 }
 
 a.refresh  {
-  background: url(../../piston/images/refresh.png) top left no-repeat;
+  background: url(../../dashboard/images/refresh.png) top left no-repeat;
   text-indent: -9999px;
   width: 24px;
   height: 24px;
@@ -346,7 +346,7 @@ a.refresh  {
 a.refresh:hover { background-position: left -24px; }
 
 a.refresh.refreshing {
-  background: url(../../piston/images/spinner.gif) top left no-repeat;
+  background: url(../../dashboard/images/spinner.gif) top left no-repeat;
 }
 
 input.refreshOption {
@@ -428,7 +428,7 @@ table.wide {
 }
 
 table th {
-  background: #9b9a9a url(../../piston/images/misc_bg.png) top left repeat-x;
+  background: #9b9a9a url(../../dashboard/images/misc_bg.png) top left repeat-x;
   color: #fff;
   text-align: left;
   font-weight: normal;
