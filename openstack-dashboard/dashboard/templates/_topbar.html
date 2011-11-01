@@ -1,11 +1,20 @@
 <div id='header'>
   <ul id="main_nav">
-    <li id="home_link"><h1><a href='{% url splash %}'>OpenStack Dashboard</a></h1></li>
+    <li id="home_link"><h1><a href='{% url splash %}'>Pent<sup>OS</sup> Dashboard</a></h1></li>
     {% if request.user %}
       <li><a {% if current_topbar == "dash" %} class="active" {% endif %} href="{% url dash_overview %}">User Dashboard</a></li>
 
       {% if request.user.is_admin %}
       <li><a {% if current_topbar == "syspanel" %} class="active" {% endif %} href="{% url syspanel_overview %}">System Panel</a></li>
+
+          {% if pentos.update %}
+          <li class="pentos_update"><a href="{% url dash_pistonupdates %}">Update {{pentos.version}} Available</a></li>
+          {% endif %}
+          
+          {% if not pentos.entitled %}
+          <li class="pentos_expired"><a href="{% url dash_pistonexpired %}">License Expired!</a></li>
+          {% endif %}
+          
       {% endif %}
     {% else %}
       NOT _LOGGED_IN_TOPBAR

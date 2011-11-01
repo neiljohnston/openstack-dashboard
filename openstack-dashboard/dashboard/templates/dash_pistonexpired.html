@@ -1,0 +1,20 @@
+{% extends 'dash_base.html' %}
+
+{% block sidebar %}
+  {% with current_sidebar="pistonexpired" %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{% block page_header %}
+  {% url dash_pistonexpired request.user.tenant as refresh_link %}
+  {# to make searchable false, just remove it from the include statement #}
+  {% include "_page_header.html" with title="PentOS Expired" refresh_link=refresh_link %}
+{% endblock page_header %}
+
+{% block dash_main %}
+    <div class="message_box error">
+      <h2>Info: PentOS Expired</h2>
+      <p>PenOS is Expired.</p>
+    </div>
+{% endblock %}

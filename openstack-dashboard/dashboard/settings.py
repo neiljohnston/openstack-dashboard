@@ -30,7 +30,7 @@ DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 SITE_ID = 1
-SITE_BRANDING = 'OpenStack'
+SITE_BRANDING = 'Piston Enterprise OS'
 SITE_NAME = 'openstack'
 ENABLE_VNC = True
 
@@ -68,6 +68,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django_openstack.context_processors.swift',
     'django_openstack.context_processors.tenants',
     'django_openstack.context_processors.quantum',
+    'django_openstack.context_processors.pentos',
+	'django_openstack.context_processors.piston',
 )
 
 TEMPLATE_LOADERS = (

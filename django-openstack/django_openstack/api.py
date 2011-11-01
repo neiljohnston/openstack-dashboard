@@ -51,6 +51,8 @@ from novaclient.v1_1 import client
 import quantum.client
 from urlparse import urlparse
 
+
+
 LOG = logging.getLogger('django_openstack.api')
 
 
@@ -932,8 +934,8 @@ class GlobalSummary(object):
         try:
             self.service_list = service_list(self.request)
         except api_exceptions.ApiException, e:
-            self.service_list = []
-            LOG.exception('ApiException fetching service list in instance usage')
+            LOG.error('ApiException fetching service list in instance usage',
+                      exc_info=True)
             messages.error(self.request,
                            'Unable to get service info: %s' % e.message)
             return
@@ -959,9 +961,9 @@ class GlobalSummary(object):
             self.usage_list = []
             LOG.exception('ApiException fetching usage list in instance usage'
                       ' on date range "%s to %s"' % (datetime_start,
-                                                     datetime_end))
-            messages.error(self.request,
-                    'Unable to get usage info: %s' % e.message)
+                                                     datetime_end),
+                      exc_info=True)
+            messages.error(self.request, 'Unable to get usage info: %s' % e.message)
             return
 
         for usage in self.usage_list:

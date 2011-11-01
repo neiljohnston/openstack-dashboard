@@ -37,6 +37,12 @@ urlpatterns = patterns('',
         name='dash_overview'),
     url(r'^syspanel/$', 'django_openstack.syspanel.views.instances.usage',
         name='syspanel_overview'),
+    url(r'^dash/$', 'django_openstack.dash.views.instances.usage', name='dash_overview'),
+    url(r'^syspanel/$', 'django_openstack.syspanel.views.instances.usage', name='syspanel_overview'),
+    url(r'^pistondownloads/$', 'dashboard.views.pistondownloads', name='dash_pistondownloads'),
+    url(r'^pistonupdates/$', 'dashboard.views.pistonupdates', name='dash_pistonupdates'),
+    url(r'^pistonexipred/$', 'dashboard.views.pistonexpired', name='dash_pistonexpired'),
+    url(r'^pistonfeedback/$', 'dashboard.views.pistonfeedback', name='dash_pistonfeedback'),
 )
 
 # Development static app and project media serving using the staticfiles app.
