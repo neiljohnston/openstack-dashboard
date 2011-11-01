@@ -1,0 +1,29 @@
+{% extends 'dash_base.html' %}
+
+{% block sidebar %}
+  {% with current_sidebar="pistonupdates" %}
+    {{block.super}}
+  {% endwith %}
+{% endblock %}
+
+{% block page_header %}
+  {% url dash_pistonupdates request.user.tenant as refresh_link %}
+  {# to make searchable false, just remove it from the include statement #}
+  {%include "_page_header.html" with title="PentOS Update" refresh_link=refresh_link %}
+{% endblock page_header %}
+
+{% block dash_main %}
+<div>
+<h2>Piston PentOS Version {{pentos.version}} - {{pentos.release_title}} Updating...</h2>
+<p>This is an asynchronous process running on your cloud hardware.</p>
+<br/>
+<h2>Summary:</h2>
+<p>
+  <br/>
+  Version: {{pentos.version}}<br/>
+  Release Title: {{pentos.release_title}}<br/>
+  Download UIR: {{pentos.uri}}<br/>
+  Release Notes: {{pentos.notes}}<br/>
+  Release Date: {{pentos.release_date}}<br/>
+</p>
+{% endblock %}

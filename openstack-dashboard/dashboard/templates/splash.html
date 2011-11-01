@@ -1,13 +1,23 @@
 <!DOCTYPE html>
+{% load branding %}
 <html lang="en" xml:lang="en">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>Login</title>
-    <link href='{{ STATIC_URL }}dashboard/css/style.css' media='screen' rel='stylesheet' />
+    <title>{% site_branding %} Login</title>
+    <script charset='utf-8' src='/media/dashboard/js/jquery.min.js' type='text/javascript'></script>
+    <link href='/media/dashboard/css/style.css' media='screen' rel='stylesheet' /> 
   </head>
   <body id="standalone">
     <div id="login_wrapper">
       <div class='large-rounded' id='login'>
+        {%if not pentos.entitled %}
+        <div class="message_box error">
+          <h2>Alert</h2>
+          <p>PentOS Entitlement Expired!<br/>Please <a href="{{piston_contact}}">contact</a> Piston Cloud Computing. </p>
+        </div>
+        {% endif %}
+        
+        
         {% include "_messages.html" %}
         {% include '_login.html' %}
         <ul id='alternate_links'>
@@ -15,6 +25,8 @@
           <li>&nbsp;</li>
         </ul>
         <div class="clear"></div>
+      </div>
+      <div id="built_on_openstack_wrapper">
       </div>
     </div>
   </body>
