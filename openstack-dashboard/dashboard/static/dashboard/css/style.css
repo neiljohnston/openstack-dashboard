@@ -66,7 +66,7 @@ li.last { border-right: none !important; }
 }
 
 input[type="submit"] {
-  background: url(../../piston/images/modal_btn.png) top left repeat-x;
+  background: url(../../dashboard/images/modal_btn.png) top left repeat-x;
   color: #6a6a6a;
   font-size: 14px;
   text-align: center;
@@ -94,14 +94,14 @@ input[type="submit"]:active { background-position: 0 -105px; }
   border: 1px solid #05b5a2;
   -webkit-transition-property: background;
   -webkit-transition-duration: 0.2s;
-  text-shadow: #000000 0 -1px 0;
+  /* text-shadow: #000000 0 -1px 0; */
 }
 
 #main a.action_link:hover, #main input.action_input:hover {
   background: #6fa267; 
   text-decoration: none;  
   border-color: #bfe8df;
-  text-shadow: #05b5a2 0 -1px 0;
+  /* text-shadow: #05b5a2 0 -1px 0; */
 }
 
 #main input.action_input {
@@ -603,9 +603,9 @@ td#actions input[type="submit"]:hover { text-decoration: underline; }
 
 .status_box.medium .status span, .status_box.medium .overview { color: #d1b100; }
 .status_box.bad .status span, .status_box.bad .overview {  color: #eb1400; }
-.status_box.good .status { background: url(../../piston/images/status_sprite.png) 6px 8px no-repeat; }
-.status_box.medium .status { background: url(../../piston/images/status_sprite.png) no-repeat 6px -90px; }
-.status_box.bad .status { background: url(../../piston/images/status_sprite.png) no-repeat 6px -186px; }
+.status_box.good .status { background: url(../../dashboard/images/status_sprite.png) 6px 8px no-repeat; }
+.status_box.medium .status { background: url(../../dashboard/images/status_sprite.png) no-repeat 6px -90px; }
+.status_box.bad .status { background: url(../../dashboard/images/status_sprite.png) no-repeat 6px -186px; }
 
 .status_box.small { 
   width: 100%;
