@@ -16,7 +16,7 @@
 
 
 body {
-  background: url(../../piston/images/content_bg.png) top left repeat-y;
+  background: url(../../dashboard/images/content_bg.png) top left repeat-y;
   /* font: 16px/21px anivers, trebuchet, helvetica, arial, sans-serif; */
   font: 16px/21px OratorStdMedium, trebuchet, helvetica, arial, sans-serif;
   color: #455560;
@@ -211,7 +211,7 @@ h1 a{
 }
 
 #drop_btn {
-  background: #c9ead1 url(../../piston/images/drop_arrow.png) no-repeat center center;
+  background: #c9ead1 url(../../dashboard/images/drop_arrow.png) no-repeat center center;
   margin: -5px 0 0 0;
   padding: 12px 0 0 0;
   width: 25px;
