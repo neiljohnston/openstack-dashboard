@@ -5,18 +5,18 @@
 
 @font-face {
     font-family: 'OratorStdMedium';
-    src: url('oratorstd-webfont.eot');
-    src: url('oratorstd-webfont.eot?#iefix') format('embedded-opentype'),
-         url('oratorstd-webfont.woff') format('woff'),
-         url('oratorstd-webfont.ttf') format('truetype'),
-         url('oratorstd-webfont.svg#OratorStdMedium') format('svg');
+    src: url('../../piston/fonts/oratorstd-webfont.eot');
+    src: url('../../piston/fonts/oratorstd-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../../piston/fonts/oratorstd-webfont.woff') format('woff'),
+         url('../../piston/fonts/oratorstd-webfont.ttf') format('truetype'),
+         url('../../piston/fonts/oratorstd-webfont.svg#OratorStdMedium') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 
 body {
-  background: url(../images/content_bg.png) top left repeat-y;
+  background: url(../../piston/images/content_bg.png) top left repeat-y;
   /* font: 16px/21px anivers, trebuchet, helvetica, arial, sans-serif; */
   font: 16px/21px OratorStdMedium, trebuchet, helvetica, arial, sans-serif;
   color: #455560;
@@ -62,11 +62,11 @@ li.last { border-right: none !important; }
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  background: url('../images/piston-triple-login.png') no-repeat left !important;
+  background: url('../../piston/images/piston-triple-login.png') no-repeat left !important;
 }
 
 input[type="submit"] {
-  background: url(../images/modal_btn.png) top left repeat-x;
+  background: url(../../piston/images/modal_btn.png) top left repeat-x;
   color: #6a6a6a;
   font-size: 14px;
   text-align: center;
@@ -123,7 +123,7 @@ input[type="submit"]:active { background-position: 0 -105px; }
   width: 100%;
   height: 112px;
   float: left;
-  background: url(../images/honeycomb_tile.jpg);
+  background: url(../../piston/images/honeycomb_tile.jpg);
 }
 
 h1 {
@@ -132,7 +132,7 @@ h1 {
 }
 
 h1 a{
-  background: url(../images/pentos-logo-full.png) no-repeat left !important;
+  background: url(../../piston/images/pentos-logo-full.png) no-repeat left !important;
   text-indent: -9999px;
   width: 227px;
   float: left;
@@ -172,14 +172,14 @@ h1 a{
   border-top: 5px solid #00a389 !important;
   border:  solid #00a389 1px ;
   color: #00a389 !important;
-  background: url(../images/pentagon_alert.png) 52px -80px no-repeat #dae0e4;
+  background: url(../../piston/images/pentagon_alert.png) 52px -80px no-repeat #dae0e4;
 }
 
 .pentos_expired a{
   border-top: 5px solid #be0f34 !important;
   border:  solid #be0f34 1px ;
   color: #be0f34 !important;
-  background: url(../images/pentagon_alert.png) 35px -191px no-repeat #fcedeb;
+  background: url(../../piston/images/pentagon_alert.png) 35px -191px no-repeat #fcedeb;
 }
 
 
@@ -211,7 +211,7 @@ h1 a{
 }
 
 #drop_btn {
-  background: #c9ead1 url(../images/drop_arrow.png) no-repeat center center;
+  background: #c9ead1 url(../../piston/images/drop_arrow.png) no-repeat center center;
   margin: -5px 0 0 0;
   padding: 12px 0 0 0;
   width: 25px;
@@ -323,7 +323,7 @@ li.title h4{
 #page_header .search { float: left; }
 
 .search form label {
-  background: #fff url(../images/search.png) no-repeat 10px;
+  background: #fff url(../../piston/images/search.png) no-repeat 10px;
   text-indent: -9999px;
   width: 16px;
   height: 16px;
@@ -334,7 +334,7 @@ li.title h4{
 }
 
 a.refresh  {
-  background: url(../images/refresh.png) top left no-repeat;
+  background: url(../../piston/images/refresh.png) top left no-repeat;
   text-indent: -9999px;
   width: 24px;
   height: 24px;
@@ -346,7 +346,7 @@ a.refresh  {
 a.refresh:hover { background-position: left -24px; }
 
 a.refresh.refreshing {
-  background: url(../images/spinner.gif) top left no-repeat;
+  background: url(../../piston/images/spinner.gif) top left no-repeat;
 }
 
 input.refreshOption {
@@ -428,7 +428,7 @@ table.wide {
 }
 
 table th {
-  background: #9b9a9a url(../images/misc_bg.png) top left repeat-x;
+  background: #9b9a9a url(../../piston/images/misc_bg.png) top left repeat-x;
   color: #fff;
   text-align: left;
   font-weight: normal;
@@ -603,9 +603,9 @@ td#actions input[type="submit"]:hover { text-decoration: underline; }
 
 .status_box.medium .status span, .status_box.medium .overview { color: #d1b100; }
 .status_box.bad .status span, .status_box.bad .overview {  color: #eb1400; }
-.status_box.good .status { background: url(../images/status_sprite.png) 6px 8px no-repeat; }
-.status_box.medium .status { background: url(../images/status_sprite.png) no-repeat 6px -90px; }
-.status_box.bad .status { background: url(../images/status_sprite.png) no-repeat 6px -186px; }
+.status_box.good .status { background: url(../../piston/images/status_sprite.png) 6px 8px no-repeat; }
+.status_box.medium .status { background: url(../../piston/images/status_sprite.png) no-repeat 6px -90px; }
+.status_box.bad .status { background: url(../../piston/images/status_sprite.png) no-repeat 6px -186px; }
 
 .status_box.small { 
   width: 100%;
@@ -878,7 +878,7 @@ input:focus, textarea:focus {
   border: 2px solid #455560;
   -webkit-box-shadow: 0 0  10px rgba(0,0,0,0.2);  
   -moz-box-shadow: 0 0  10px rgba(0,0,0,0.2);
-  background: url(../images/piston_dashboard_logo.png) no-repeat center top; 
+  background: url(../../piston/images/piston_dashboard_logo.png) no-repeat center top; 
 }
 
 #login .message_box{
@@ -892,7 +892,7 @@ input:focus, textarea:focus {
 }
 
 #standalone #built_on_openstack_wrapper {
-  background: url(../images/built-on-openstack-badge.png) no-repeat center top;
+  background: url(../../piston/images/built-on-openstack-badge.png) no-repeat center top;
   width: 390px;
   height: 200px;
   margin: 10px auto 0 auto;
@@ -937,7 +937,7 @@ input[readonly="readonly"] {
 }
 
 #login input[type="submit"] {
-  background: url(../images/pentagon_submit.png) top left;
+  background: url(../../piston/images/pentagon_submit.png) top left;
   width: 60px;
   height: 60px;
   margin: 52px 3px -100px 0;
@@ -959,7 +959,7 @@ input[readonly="readonly"] {
 
 #alternate_links {
   background: #F3E4A6;
-  /* background: url('../images/piston_login_bg.png') top left; */
+  /* background: url('../../piston/images/piston_login_bg.png') top left; */
   width: 365px;
   margin: 23px 0 -25px -25px;
   padding: 24px 0 25px 25px;
