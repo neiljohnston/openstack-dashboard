@@ -133,6 +133,8 @@ def pentos(request):
         # Set Default UI behaviour for Entitlement if an OSError is thrown reaching entitlement key
         entitled = False
 
+    # TODO(neil) This is not right for GA
+    entitled = True
 
     # *************************************************************
     #  Update Logic
