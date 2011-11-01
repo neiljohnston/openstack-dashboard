@@ -19,12 +19,12 @@
 #    under the License.
 
 # Imports for use in Dashboards request to server for release.json payload
-# 
+#
 import json
 import time
 import os
 
-from urllib2 import Request, urlopen, URLError, HTTPError
+from urllib2 import Request, urlopen, URLError
 
 from django.conf import settings
 from django_openstack import api
@@ -56,21 +56,14 @@ def quantum(request):
 
 def getJSONasString(request, revisionurl):
     # Returns Piston's PentOS release information from the revision URL
-    
+
     JSONstring = '' #Set the return string to empty, so we've a testable error
-    
+
     #Pull latest release information from revisionurl
     revisionreq = Request(revisionurl)
     try:
         revisionreponse = urlopen(revisionreq)
     except URLError, e:
-        if hasattr(e, 'reason'):
-            messages.error(request, "URLError Reason:  %s" % e.reason)
-        if hasattr(e, 'code'):
-            messages.error(request, "URLError Code:  %s" % e.code)
-        messages.info(request, "Unable to connect to Piston Update Service via internet. Please check internet connection.")
-        return
-    except HTTPError, e:
         if hasattr(e, 'reason'):
             messages.error(request, "URLError Reason:  %s" % e.reason)
         if hasattr(e, 'code'):
@@ -98,14 +91,14 @@ def pentos(request):
     # /mnt/big/
     entitlement_key_path = './pentossupport/' #Replace for non-local env
     entitlement_key_name = 'entitlement.key'
-    
+
     # /mnt/big/
     current_install_key_path = './pentossupport/' #Replace for non-local env
     current_install_key_name = 'entitlement.key'
-    
+
     # this will be hosted on updates.pistoncloud.com
     revisionurl = 'http://dev.pistoncloud.com/scripts/release.js' #Anticipated 'http://updates.pistoncloud.com/release.json'
-    
+
     update_available = False
     entitled = False
 
@@ -121,14 +114,14 @@ def pentos(request):
     # 'checksum': '4038471504',
     # 'manifest': 'not currently in use'
     #}
-    
-    
+
+
     # *************************************************************
     #  Entitlement Handling
     # *************************************************************
     curent_time = time.time()
     entitlement_timestamp = getTimestamp(request, entitlement_key_path + entitlement_key_name)
-    expiry_time = 90 * 24 * 60 * 60;
+    expiry_time = 90 * 24 * 60 * 60
     if entitlement_timestamp:
         entitlement_expires = entitlement_timestamp + expiry_time
         entitled = (curent_time <= entitlement_expires)
@@ -142,17 +135,17 @@ def pentos(request):
     # *************************************************************
     #  Update Logic
     # *************************************************************
-    
+
     JSONstring = getJSONasString(request, revisionurl)
     # Convert response to JSON
     if not JSONstring:
         messages.info(request, "No JSON Returned")
         #Load dummy JSON for pass through
-        JSONstring ='{"version" : "1.0", "uri" : "http://updates.pistoncloud.com/update-releasetimestamp.tar", "notes" : "Release notes for display in UI", "release_date" : "September 27th, 2011", "release_title" : "Morgenstern", "release_timestamp" : "1316154243.0", "checksum": "4038471504", "manifest": "not currently in use"}'
+        JSONstring = '{"version" : "1.0", "uri" : "http://updates.pistoncloud.com/update-releasetimestamp.tar", "notes" : "Release notes for display in UI", "release_date" : "September 27th, 2011", "release_title" : "Morgenstern", "release_timestamp" : "1316154243.0", "checksum": "4038471504", "manifest": "not currently in use"}'
         update_available = False
 
     releaseJSON = json.loads(JSONstring)
-    
+
     #request JSON describing latest PentOS release from updates.piston.com
     release_timestamp = releaseJSON['release_timestamp']
     #messages.info(request, "release_timestamp:  %s" % release_timestamp)
@@ -165,43 +158,42 @@ def pentos(request):
     else:
         # Set Default UI behaviour if an OSError occures reaching PentOS Install Timestamp
         update_available = False
-        
+
     # DEBUG OVERRIDE
     # update_available = True
     # entitled = False
-    
+
     releaseJSON.update(entitled = entitled)
     releaseJSON.update(update=update_available)
-    #messages.info(request, "releaseJSON:  %s" % releaseJSON)    
+    #messages.info(request, "releaseJSON:  %s" % releaseJSON)
     return {'pentos': releaseJSON}
-    
+
 
 def piston(request):
-    extendedtools = True
-    # pentosJSONpath = '/mnt/big/pentos.json' #Anticipated
-    pentosJSONpath = './pentossupport/pentos.json' #Current
-    
+    pentos_json_path = os.path.join(settings.PENTOS_SUPPORT_DIR, 'pentos.json')
+
     try:
-        pentosfile = open(pentosJSONpath, 'r')
-        pentosJSON = json.load(pentosfile)
-        pentosfile.close()
-        if pentosJSON['expanded_tools_download'] == True:
-            # This catch expanded_tools_download when it's explicitely true
-            extendedtools = pentosJSON['expanded_tools_download']
-        else:
+        with open(pentos_json_path, 'r') as pentosfile:
+            pentos_json = json.load(pentosfile)
+
+        extendedtools = pentos_json.get('expanded_tools_download')
+        if extendedtools is None:
             # Account for config error if expanded_tools_download is invalid
             # by defaulting to hiding the tools link
             messages.error(request, "Your expanded_tools_download configuration may be incorrect, please validate.")
             extendedtools = False
+
+        uri = pentos_json.get('tools_download_uri')
     except IOError, e:
         messages.error(request, "IOError:  %s" % e)
+        pentos_json = {}
         extendedtools = False
-        
-    datatracking = False
+        uri = None
+
     return {'piston': {
         'expanded_tools_download': extendedtools,
-        'tools_download_uri': pentosJSON['tools_download_uri'],
-        'datatracking': datatracking,
+        'tools_download_uri': uri,
+        'datatracking': False,
        },
     }
 

@@ -6,6 +6,8 @@ PROD = False
 USE_SSL = False
 
 LOCAL_PATH = os.path.dirname(os.path.abspath(__file__))
+PENTOS_SUPPORT_DIR = os.path.join(os.path.dirname(LOCAL_PATH), 'pentossupport')
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
