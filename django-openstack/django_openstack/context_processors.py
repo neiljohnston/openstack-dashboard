@@ -116,7 +116,11 @@ def pentos(request):
     #  Entitlement Handling
     # *************************************************************
     curent_time = time.time()
-    entitlement_timestamp = getTimestamp(request, entitlement_key_path + entitlement_key_name)
+    try:
+        entitlement_timestamp = getTimestamp(request, entitlement_key_path + entitlement_key_name)
+    except OSError:
+        entitlement_timestamp = time.now()
+
     expiry_time = 90 * 24 * 60 * 60
     if entitlement_timestamp:
         entitlement_expires = entitlement_timestamp + expiry_time
@@ -124,8 +128,6 @@ def pentos(request):
     else:
         # Set Default UI behaviour for Entitlement if an OSError is thrown reaching entitlement key
         entitled = False
-
-
 
 
     # *************************************************************
