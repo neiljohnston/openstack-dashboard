@@ -82,7 +82,7 @@ def getTimestamp(request, filepath):
     try:
         file_timestamp = os.path.getctime(filepath)
     except OSError, e:
-        messages.error(request, "OSError Code:  %s" % e.errno)
+        # messages.error(request, "OSError Code:  %s" % e.errno)
         file_timestamp = False
     return file_timestamp
 
@@ -120,7 +120,11 @@ def pentos(request):
     #  Entitlement Handling
     # *************************************************************
     curent_time = time.time()
-    entitlement_timestamp = getTimestamp(request, entitlement_key_path + entitlement_key_name)
+    try:
+        entitlement_timestamp = getTimestamp(request, entitlement_key_path + entitlement_key_name)
+    except OSError:
+        entitlement_timestamp = time.now()
+
     expiry_time = 90 * 24 * 60 * 60
     if entitlement_timestamp:
         entitlement_expires = entitlement_timestamp + expiry_time
@@ -128,8 +132,6 @@ def pentos(request):
     else:
         # Set Default UI behaviour for Entitlement if an OSError is thrown reaching entitlement key
         entitled = False
-
-
 
 
     # *************************************************************
@@ -150,7 +152,10 @@ def pentos(request):
     release_timestamp = releaseJSON['release_timestamp']
     #messages.info(request, "release_timestamp:  %s" % release_timestamp)
     # Get current PentOS intalls timestamp from existing arista/cluster
-    installed_pentos_timestamp = getTimestamp(request, current_install_key_path + current_install_key_name)
+    try:
+        installed_pentos_timestamp = getTimestamp(request, current_install_key_path + current_install_key_name)
+    except OSError:
+        installed_pentos_timestamp = time.now()
     if installed_pentos_timestamp:
         #compare timestamps, note they need to be converted to floats
         update_available = float(installed_pentos_timestamp) < float(release_timestamp)
