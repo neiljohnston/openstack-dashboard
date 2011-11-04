@@ -21,10 +21,13 @@
 import os
 import shutil
 import setuptools
+import time
 
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
+PISTON_VERSION = os.environ.get('PISTON_VERSION',
+        time.strftime('9999.0.%Y%m%d%H%M%S', time.localtime()))
 
 dst = 'debian/openstack-dashboard/var/lib/dash'
 os.system('rm -rf %s' % dst)
@@ -35,7 +38,7 @@ shutil.copytree('local', '%s/local' % dst)
 
 setuptools.setup(
     name = 'openstack-dashboard',
-    version = '0.4',
+    version = PISTON_VERSION,
     url = 'https://github.com/cloudbuilders/openstack-dashboard.git',
     license = 'Apache 2.0',
     description = "A Django interface for OpenStack.",
