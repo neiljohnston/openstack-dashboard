@@ -1,0 +1,3 @@
+graft django-openstack
+graft openstack-dashboard
+include version.py
