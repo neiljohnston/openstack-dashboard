@@ -19,14 +19,18 @@
 #    under the License.
 
 import os
+import time
 from setuptools import setup, find_packages, findall
 
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
+PISTON_VERSION = os.environ.get('PISTON_VERSION',
+        time.strftime('9999.0.%Y%m%d%H%M%S', time.localtime()))
+
 setup(
     name = "django-openstack",
-    version = "0.4",
+    version = PISTON_VERSION,
     url = 'https://launchpad.net/django-openstack/',
     license = 'Apache 2.0',
     description = "A Django interface for OpenStack.",
