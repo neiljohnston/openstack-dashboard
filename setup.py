@@ -5,8 +5,6 @@ import setuptools
 import sys
 import time
 
-from pistonsupport import setuphelp as ps
-
 INSTALL_DIR = os.path.join(sys.prefix, 'share', 'dashboard')
 TOPDIR = os.path.abspath(os.path.dirname(__file__))
 VFILE  = os.path.join(TOPDIR, 'version.py')
@@ -30,13 +28,27 @@ else:
     PISTON_VERSION = pistonversion.VERSION
     assert '9999.0' not in PISTON_VERSION, 'Please build this from a source tarball'
 
-packages, data_files = ps.discover_things_in(TOPDIR, ['django-openstack', 'openstack-dashboard'])
-data_files = ps.finish_for_setuptools(data_files, INSTALL_DIR)
+packages = setuptools.find_packages(where='django-openstack')
+
+data_files = {}
+for p in setuptools.findall('openstack-dashboard'):
+    d, _ = os.path.split(p)
+    full = os.path.join(INSTALL_DIR, d)
+    data_files[full] = data_files.get(full, [])
+    data_files[full].append(p)
 
 setuptools.setup(
     name = 'dashboard',
     packages = packages,
-    data_files = data_files,
+    data_files = data_files.items(),
+    package_dir = {
+        'django_openstack': 'django-openstack/django_openstack',
+    },
+    package_data = {
+        'django_openstack':
+        [os.path.relpath(x, 'django-openstack/django_openstack/')
+            for x in setuptools.findall('django-openstack/django_openstack/templates')],
+    },
     version = PISTON_VERSION,
     url = 'https://github.com/cloudbuilders/openstack-dashboard.git',
     license = 'Apache 2.0',
