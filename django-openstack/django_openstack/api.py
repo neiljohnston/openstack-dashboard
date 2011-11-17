@@ -961,8 +961,7 @@ class GlobalSummary(object):
             self.usage_list = []
             LOG.exception('ApiException fetching usage list in instance usage'
                       ' on date range "%s to %s"' % (datetime_start,
-                                                     datetime_end),
-                      exc_info=True)
+                                                     datetime_end))
             messages.error(self.request, 'Unable to get usage info: %s' % e.message)
             return
 
