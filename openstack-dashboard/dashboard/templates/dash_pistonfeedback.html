@@ -1,4 +1,4 @@
-{% extends 'dash_base.html' %}
+{% extends 'django_openstack/dash/base.html' %}
 
 {% block sidebar %}
   {% with current_sidebar="pistonfeedback" %}
@@ -9,7 +9,7 @@
 {% block page_header %}
   {% url dash_feedback request.user.tenant as refresh_link %}
   {# to make searchable false, just remove it from the include statement #}
-  {% include "_page_header.html" with title="Piston Feedback" refresh_link=refresh_link %}
+  {% include "django_openstack/common/_page_header.html" with title="Piston Feedback" refresh_link=refresh_link %}
 {% endblock page_header %}
 
 {% block dash_main %}

@@ -1,4 +1,4 @@
-{% extends 'dash_base.html' %}
+{% extends 'django_openstack/dash/base.html' %}
 
 {% block sidebar %}
   {% with current_sidebar="pistonupdates" %}
@@ -9,18 +9,21 @@
 {% block page_header %}
   {% url dash_pistonupdates request.user.tenant as refresh_link %}
   {# to make searchable false, just remove it from the include statement #}
-  {%include "_page_header.html" with title="PentOS Update" refresh_link=refresh_link %}
+  {%include "django_openstack/common/_page_header.html" with title="PentOS Update" refresh_link=refresh_link %}
 {% endblock page_header %}
 
 {% block dash_main %}
 <div>
 <h2>Piston PentOS Version {{pentos.version}} - {{pentos.release_title}}</h2>
-
+<br/>
+<h3>Status={{status}}</h3>
+<h3>Message={{message}}</h3>
+<br/>
 <h2>Summary:</h2>
 <p>
 Version: {{pentos.version}}<br/>
 Release Title: {{pentos.release_title}}<br/>
-Download UIR: {{pentos.uri}}<br/>
+Download URL: {{pentos.uri}}<br/>
 Download Checksum: {{pentos.checksum}}<br/>
 Release Notes: {{pentos.notes}}<br/>
 Release Date: {{pentos.release_date}}<br/>
