@@ -26,7 +26,6 @@ else:
     assert os.path.exists(VFILE), 'version.py does not exist, please set PISTON_VERSION (or run make_version.py for dev purposes)'
     import version as pistonversion
     PISTON_VERSION = pistonversion.VERSION
-    assert '9999.0' not in PISTON_VERSION, 'Please build this from a source tarball'
 
 packages = setuptools.find_packages(where='django-openstack')
 
