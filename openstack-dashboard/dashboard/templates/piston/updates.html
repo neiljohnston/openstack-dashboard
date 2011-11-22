@@ -1,13 +1,13 @@
-{% extends 'django_openstack/dash/base.html' %}
+{% extends 'piston/base.html' %}
 
 {% block sidebar %}
-  {% with current_sidebar="pistonupdates" %}
+  {% with current_sidebar="piston_updates" %}
     {{block.super}}
   {% endwith %}
 {% endblock %}
 
 {% block page_header %}
-  {% url dash_pistonupdates request.user.tenant as refresh_link %}
+  {% url piston_updates request.user.tenant as refresh_link %}
   {# to make searchable false, just remove it from the include statement #}
   {%include "django_openstack/common/_page_header.html" with title="PentOS Update" refresh_link=refresh_link %}
 {% endblock page_header %}

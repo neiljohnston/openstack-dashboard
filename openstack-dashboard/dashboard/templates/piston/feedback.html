@@ -1,7 +1,7 @@
-{% extends 'django_openstack/dash/base.html' %}
+{% extends 'piston/base.html' %}
 
 {% block sidebar %}
-  {% with current_sidebar="pistonfeedback" %}
+  {% with current_sidebar="piston_feedback" %}
     {{block.super}}
   {% endwith %}
 {% endblock %}

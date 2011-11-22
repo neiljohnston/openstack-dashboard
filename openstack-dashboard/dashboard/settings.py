@@ -69,7 +69,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django_openstack.context_processors.tenants',
     'django_openstack.context_processors.quantum',
     'django_openstack.context_processors.pentos',
-	'django_openstack.context_processors.piston',
+    'django_openstack.context_processors.piston',
 )
 
 TEMPLATE_LOADERS = (

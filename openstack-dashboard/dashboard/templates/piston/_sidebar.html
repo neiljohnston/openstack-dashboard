@@ -1,0 +1,8 @@
+<div id='sidebar'>
+  <h3>PentOS</h3>
+  <ul class='sub_nav'>
+    <a {% if current_sidebar == "piston_downloads" %} class="active" {% endif %} href="{% url piston_downloads %}">Downloads</a><br/>
+    <a {% if current_sidebar == "piston_feedback"  %} class="active" {% endif %} href="{% url piston_feedback %}">Feedback</a><br/>
+    <a {% if current_sidebar == "piston_updates"   %} class="active" {% endif %} href="{% url piston_updates %}">Updates</a><br/>
+  </ul>
+</div>

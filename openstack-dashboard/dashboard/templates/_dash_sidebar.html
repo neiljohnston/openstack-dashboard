@@ -5,13 +5,6 @@
     <li><a {% if current_sidebar == "instances" %} class="active" {% endif %} href="{% url dash_instances request.user.tenant %}">Instances</a></li>
     <li><a {% if current_sidebar == "images" %} class="active" {% endif %} href="{% url dash_images request.user.tenant %}">Images</a></li>
     <li><a {% if current_sidebar == "keypairs" %} class="active" {% endif %} href="{% url dash_keypairs request.user.tenant %}">Keypairs</a></li>
-    {% if piston.expanded_tools_download %}
-    <li><a {% if current_sidebar == "pistondownloads" %} class="active" {% endif %} href="{% url dash_pistondownloads %}">Tools &amp; Images</a></li>
-    {% endif %}
-    {% if pentos.update %}
-    <li><a {% if current_sidebar == "pistonupdates" %} class="active" {% endif %} href="{% url dash_pistonupdates %}">PentOS Updates</a></li>
-    {% endif %}
-    <li><a {% if current_sidebar == "pistonfeedback" %} class="active" {% endif %} href="{% url dash_pistonfeedback %}">Send Feedback</a></li>
   </ul>
   {% if swift_configured %}
   <h3>Manage Object Store</h3>
