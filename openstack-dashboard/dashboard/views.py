@@ -30,8 +30,6 @@ from django.views.decorators import vary
 
 from django_openstack.auth import views as auth_views
 
-from savage.command.commands import arista as savage
-
 @vary.vary_on_cookie
 def splash(request):
     if request.user:
@@ -45,38 +43,4 @@ def splash(request):
         return handled
     return shortcuts.render_to_response('splash.html', {
         'form': form,
-    }, context_instance=template.RequestContext(request))
-
-
-def pistondownloads(request):
-    return shortcuts.render_to_response('dash_pistondownloads.html', {
-    }, context_instance=template.RequestContext(request))
-
-def pistonupdates(request):
-    # TODO(neil) Is this the right place for the code activation?
-    status, message = '', ''
-    if request.method == 'POST':
-        r = request.POST
-        uri, chk = r.get('pentos_uri'), r.get('pentos_checksum')
-        if uri is None or chk is None:
-            status, message = 'error', 'Malformed update request.'
-        else:
-            purl = urlparse.urlparse(uri, scheme='')
-            if purl.scheme in ('http', 'https'):
-                status, message = savage.update_request(uri, chk)
-            else:
-                status, message = 'error', 'Unsupported update url'
-    elif request.method == 'GET':
-        status, message = savage.update_status()
-
-    return shortcuts.render_to_response('dash_pistonupdates.html', dict(
-        status=status, message=message),
-        context_instance=template.RequestContext(request))
-
-def pistonexpired(request):
-    return shortcuts.render_to_response('dash_pistonexpired.html', {
-    }, context_instance=template.RequestContext(request))
-
-def pistonfeedback(request):
-    return shortcuts.render_to_response('dash_pistonfeedback.html', {
     }, context_instance=template.RequestContext(request))

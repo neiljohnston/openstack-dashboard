@@ -30,6 +30,7 @@ from django.views import generic as generic_views
 import django.views.i18n
 
 from django_openstack import urls as django_openstack_urls
+from savage.dash import urls as piston_urls
 
 urlpatterns = patterns('',
     url(r'^$', 'dashboard.views.splash', name='splash'),
@@ -37,10 +38,8 @@ urlpatterns = patterns('',
         name='dash_overview'),
     url(r'^syspanel/$', 'django_openstack.syspanel.views.instances.usage',
         name='syspanel_overview'),
-    url(r'^pistondownloads/$', 'dashboard.views.pistondownloads', name='dash_pistondownloads'),
-    url(r'^pistonupdates/$', 'dashboard.views.pistonupdates', name='dash_pistonupdates'),
-    url(r'^pistonexpired/$', 'dashboard.views.pistonexpired', name='dash_pistonexpired'),
-    url(r'^pistonfeedback/$', 'dashboard.views.pistonfeedback', name='dash_pistonfeedback'),
+    url(r'^piston/$', 'savage.dash.views.updates',
+        name='pentos_overview'),
 )
 
 # Development static app and project media serving using the staticfiles app.
@@ -51,10 +50,7 @@ urlpatterns += staticfiles_urlpatterns()
 # path. Production media should NOT be served by Django.
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-# urlpatterns += patterns('dashboard.views.pistonupdates',
-#    url(r'^(?P<tenant_id>[^/]+)/dash_pistonupdates/$', 'index', name='dash_pistonupdates'),
-# )
-
-
 # NOTE(termie): just append them since we want the routes at the root
 urlpatterns += django_openstack_urls.urlpatterns
+
+urlpatterns += piston_urls.urlpatterns
