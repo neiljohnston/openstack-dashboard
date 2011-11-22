@@ -30,6 +30,7 @@ from django.views import generic as generic_views
 import django.views.i18n
 
 from django_openstack import urls as django_openstack_urls
+from savage.dash import urls as piston_urls
 
 urlpatterns = patterns('',
     url(r'^$', 'dashboard.views.splash', name='splash'),
@@ -49,3 +50,5 @@ urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # NOTE(termie): just append them since we want the routes at the root
 urlpatterns += django_openstack_urls.urlpatterns
+
+urlpatterns += piston_urls.urlpatterns
