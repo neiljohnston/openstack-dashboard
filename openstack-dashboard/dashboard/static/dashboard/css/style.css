@@ -363,12 +363,12 @@ label.refreshOption {
 }
 
 #monitoring {
-  background: #f8f8f8;
+  /* background: #f8f8f8; */
   font-size: 14px;
   height: 20px;
   margin: -21px 0 25px;
   padding: 10px;
-  border: 1px solid #e1e1e1;
+  /* border: 1px solid #e1e1e1; */
 }
 #monitoring h3, #external_links, #external_links li { float: left; }
 #external_links li { margin: 0 0 0 15px; }
