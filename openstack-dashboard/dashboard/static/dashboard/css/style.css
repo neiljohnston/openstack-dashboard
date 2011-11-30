@@ -717,10 +717,12 @@ td#actions input[type="submit"]:hover { text-decoration: underline; }
   font-size: 11px;
   padding: 5px 10px 5px;
   cursor: pointer;
+  float: none;
 }
 
 #date_form h3 {
   margin: 0 20px 0 0;
+  line-height: 30px;
   float: left;
 }
 
