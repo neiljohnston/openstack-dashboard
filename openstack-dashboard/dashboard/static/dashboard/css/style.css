@@ -62,7 +62,7 @@ li.last { border-right: none !important; }
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  background: url('../../piston/images/piston-triple-login.png') no-repeat left !important;
+  /* background: url('../../piston/images/piston-triple-login.png') no-repeat left !important; */
 }
 
 input[type="submit"] {
@@ -86,22 +86,27 @@ input[type="submit"]:active { background-position: 0 -105px; }
 .clear { clear: both; }
 
 #main a.action_link, #main input.action_input {
-  background: #05b5a2;
-  color: #9eabc6;
+  background: #84939e;
+  color: #ffffff;
   font-size: 14px;
   margin: 0 17px 0 0;
   padding: 10px 10px 10px 10px;
-  border: 1px solid #05b5a2;
+  border: 1px solid #ccc;
+  border-bottom-color: #666666;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
   -webkit-transition-property: background;
   -webkit-transition-duration: 0.2s;
-  /* text-shadow: #000000 0 -1px 0; */
+  text-shadow: #666666 1px 1px 0;
 }
 
 #main a.action_link:hover, #main input.action_input:hover {
-  background: #6fa267;
+  background: #00a389;
   text-decoration: none;
-  border-color: #bfe8df;
-  /* text-shadow: #05b5a2 0 -1px 0; */
+  border-color: #57a957 #57a957 #3d773d;
+  color: #ffffff;
+  text-shadow: 0 -1px 0 #84939e;
 }
 
 #main input.action_input {
@@ -880,7 +885,7 @@ input:focus, textarea:focus {
   border: 2px solid #455560;
   -webkit-box-shadow: 0 0  10px rgba(0,0,0,0.2);
   -moz-box-shadow: 0 0  10px rgba(0,0,0,0.2);
-  background: url(../../piston/images/piston_dashboard_logo.png) no-repeat center top;
+  
 }
 
 #login .message_box{
@@ -891,6 +896,7 @@ input:focus, textarea:focus {
   width: 400px;
   margin: 40px auto 0 auto ;
   padding-top: 120px;
+  background: url(../../piston/images/piston_dashboard_logo.png) no-repeat center top;
 }
 
 #standalone #built_on_openstack_wrapper {
