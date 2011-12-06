@@ -1098,3 +1098,43 @@ span.attachment_value {
     font-style:italic;
     color:#6EAF6E;
 }
+
+.iconset li{ width: auto !important;}
+
+.iconset a, .iconset input{
+    display: block;
+	width: 30px !important;
+	height: 30px !important;
+	border: none !important;
+	color: transparent !important;
+	font-size : 0 !important;
+}
+
+.iconset input[type="submit"].delete {
+    background: url('../../piston/images/icons.png') no-repeat top left !important;
+}
+
+.iconset input[type="submit"].delete:hover { background-position: -30px 0px !important; }
+.iconset input[type="submit"].delete:active { background-position: -60px 0px !important; }
+
+
+a.edit{
+    background: url('../../piston/images/icons.png') no-repeat top left !important;
+    background-position: 0px -30px !important;
+}
+a.edit:hover { background-position: -30px -30px !important; }
+a.edit:active { background-position: -60px -30px !important; }
+
+a.view_members{
+    background: url('../../piston/images/icons.png') no-repeat top left !important;
+    background-position: 0px -60px !important;
+}
+a.view_members:hover { background-position: -30px -60px !important; }
+a.view_members:active { background-position: -60px -60px !important; }
+
+a.quotas{
+    background: url('../../piston/images/icons.png') no-repeat top left !important;
+    background-position: 0px -90px !important;
+}
+a.quotas:hover { background-position: -30px -90px !important; }
+a.quotas:active { background-position: -60px -90px !important; }
