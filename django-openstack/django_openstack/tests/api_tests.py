@@ -287,8 +287,8 @@ class ServerWrapperTests(test.TestCase):
             server.missing
 
     def test_image_name(self):
-        self.mox.StubOutWithMock(api, 'image_get')
-        api.image_get(IsA(http.HttpRequest),
+        self.mox.StubOutWithMock(api, 'image_get_meta')
+        api.image_get_meta(IsA(http.HttpRequest),
                       self.IMAGE_OBJ['id']
                       ).AndReturn(api.Image({'name': self.IMAGE_NAME}))
 
@@ -1279,7 +1279,7 @@ class GlanceApiTests(test.TestCase):
 
         self.mox.VerifyAll()
 
-    def test_image_get(self):
+    def test_image_get_meta(self):
         IMAGE_ID = '1'
 
         glance_api = self.stub_glance_api()
@@ -1287,7 +1287,7 @@ class GlanceApiTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        ret_val = api.image_get(self.request, IMAGE_ID)
+        ret_val = api.image_get_meta(self.request, IMAGE_ID)
 
         self.assertIsInstance(ret_val, api.Image)
         self.assertEqual(ret_val._apidict, TEST_RETURN)

@@ -120,7 +120,7 @@ def index(request):
 @enforce_admin_access
 def update(request, image_id):
     try:
-        image = api.image_get(request, image_id)
+        image = api.image_get_meta(request, image_id)
     except glance_exception.ClientConnectionError, e:
         LOG.exception("Error connecting to glance")
         messages.error(request, "Error connecting to glance: %s" % e.message)

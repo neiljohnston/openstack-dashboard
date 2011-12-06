@@ -183,7 +183,7 @@ class Server(APIResourceWrapper):
     @property
     def image_name(self):
         try:
-            image = image_get(self.request, self.image['id'])
+            image = image_get_meta(self.request, self.image['id'])
             return image.name
         except glance_exceptions.NotFound:
             return "(not found)"
@@ -473,7 +473,19 @@ def image_delete(request, image_id):
 
 
 def image_get(request, image_id):
-    return Image(glance_api(request).get_image(image_id)[0])
+    """
+    Returns the actual image file from Glance for image with
+    supplied identifier
+    """
+    return glance_api(request).get_image(image_id)[1]
+
+
+def image_get_meta(request, image_id):
+    """
+    Returns an Image object populated with metadata for image
+    with supplied identifier.
+    """
+    return Image(glance_api(request).get_image_meta(image_id))
 
 
 def image_list_detailed(request):

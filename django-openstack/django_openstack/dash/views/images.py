@@ -60,7 +60,7 @@ class UpdateImageForm(forms.SelfHandlingForm):
         error_updating = _('Error updating image with id: %s' % image_id)
 
         try:
-            image = api.image_get(request, image_id)
+            image = api.image_get_meta(request, image_id)
         except glance_exception.ClientConnectionError, e:
             LOG.exception(_('Error connecting to glance'))
             messages.error(request, error_retrieving)
@@ -155,7 +155,7 @@ class LaunchForm(forms.SelfHandlingForm):
         image_id = data['image_id']
         tenant_id = data['tenant_id']
         try:
-            image = api.image_get(request, image_id)
+            image = api.image_get_meta(request, image_id)
             flavor = api.flavor_get(request, data['flavor'])
             api.server_create(request,
                               data['name'],
@@ -184,7 +184,7 @@ class DeleteImage(forms.SelfHandlingForm):
         image_id = data['image_id']
         tenant_id = request.user.tenant_id
         try:
-            image = api.image_get(request, image_id)
+            image = api.image_get_meta(request, image_id)
             if image.owner == request.user.tenant_id:
                 api.image_delete(request, image_id)
             else:
@@ -278,7 +278,7 @@ def launch(request, tenant_id, image_id):
 
     # TODO(mgius): Any reason why these can't be after the launchform logic?
     # If The form is valid, we've just wasted these two api calls
-    image = api.image_get(request, image_id)
+    image = api.image_get_meta(request, image_id)
     tenant = api.token_get_tenant(request, request.user.tenant_id)
     quotas = api.tenant_quota_get(request, request.user.tenant_id)
     try:
@@ -309,7 +309,7 @@ def launch(request, tenant_id, image_id):
 @login_required
 def update(request, tenant_id, image_id):
     try:
-        image = api.image_get(request, image_id)
+        image = api.image_get_meta(request, image_id)
     except glance_exception.ClientConnectionError, e:
         LOG.exception("Error connecting to glance")
         messages.error(request, "Error connecting to glance: %s"
