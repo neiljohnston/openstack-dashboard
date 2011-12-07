@@ -40,12 +40,12 @@
       </td>
 
       <td>{{instance.status|lower|capfirst}}</td>
-      <td id="actions">
+      <td id="actions" class="iconset">
         <ul>
           <li class="form">{% include "django_openstack/common/instances/_terminate.html" with form=terminate_form %}</li>
           <li class="form">{% include "django_openstack/common/instances/_reboot.html" with form=reboot_form %}</li>
-          <li><a target="_blank" href="{% url dash_instances_console request.user.tenant_id instance.id %}">Console Log</a></li>
-          <li><a target="_blank" href="{% url dash_instances_vnc request.user.tenant_id instance.id %}">VNC Console</a></li>
+          <li><a target="_blank" href="{% url dash_instances_console request.user.tenant_id instance.id %}" title="View Console Log" class="console_log">Console Log</a></li>
+          <li><a target="_blank" href="{% url dash_instances_vnc request.user.tenant_id instance.id %}" title="Launch VNC Console" class="vnc_console">VNC Console</a></li>
         </ul>
       </td>
     </tr>
