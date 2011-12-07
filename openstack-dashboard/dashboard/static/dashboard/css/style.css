@@ -230,7 +230,7 @@ h1 a{
 a#current_tenant {
   background: #f3faf3;
   color: #00a389;
-  width: 80%;
+  width: 70%;
   padding: 0 0 0 10px;
   float: left;
   display: block;
@@ -242,6 +242,21 @@ a#current_tenant {
   /* font-weight: bold; */
   text-align: left;
   margin: 3px 0 -4px;
+}
+
+a#credentials_download {
+  background: #f3faf3;
+  color: #00a389;
+  margin: 5px 0 0 10px;
+  float: left;
+  display: block;
+}
+
+#tenant_block{
+  float: left;
+  width: 85%;
+  height: 100px;
+  min-width: 159px; /* prevents collapse on small screens */
 }
 
 #user_bar li a {
@@ -444,7 +459,7 @@ table th {
 
 table td {
   border: 1px solid #e8e8e8;
-  padding: 10px 10px 10px 10px;
+  padding: 5px 10px;
   vertical-align: middle;
 }
 
@@ -487,7 +502,7 @@ tr {
 }
 
 td#actions {
-  width: 200px;
+  width: 240px;
 }
 
 td#actions ul { margin: 0; }
@@ -851,7 +866,7 @@ input:focus, textarea:focus {
 
 .dash_block form input[type="submit"] {
   font-size: 11px;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   width: auto;
   cursor: pointer;
 }
@@ -1099,7 +1114,12 @@ span.attachment_value {
     color:#6EAF6E;
 }
 
-.iconset li{ width: auto !important;}
+/* Piston Icon Classes */
+
+.iconset li{
+    width: auto !important;
+    margin: 5px 5px 5px 5px !important;
+    }
 
 .iconset a, .iconset input{
     display: block;
@@ -1138,3 +1158,99 @@ a.quotas{
 }
 a.quotas:hover { background-position: -30px -90px !important; }
 a.quotas:active { background-position: -60px -90px !important; }
+
+a.credentials {
+    background: url('../../piston/images/icons.png') no-repeat top left !important;
+    background-position: 0px -180px !important;
+    display: block;
+	width: 30px !important;
+	height: 30px !important;
+	border: none !important;
+	color: transparent !important;
+	font-size : 0 !important;
+}
+a.credentials:hover { background-position: -30px -180px !important; }
+a.credentials:active { background-position: -60px -180px !important; }
+a.inactive { background-position: -120px -180px !important; }
+a.inactive:hover { background-position: -120px -180px !important; }
+a.inactive:active { background-position: -120px -180px !important; }
+
+.iconset input[type="submit"].disable {
+   background: url('../../piston/images/icons.png') no-repeat top left !important;
+   background-position: 0px -210px !important;
+}
+.iconset input[type="submit"].disable:hover { background-position: -30px -210px !important; }
+.iconset input[type="submit"].disable:active { background-position: -60px -210px !important; }
+
+.iconset input[type="submit"].enable {
+   background: url('../../piston/images/icons.png') no-repeat top left !important;
+   background-position: 0px -240px !important;
+}
+.iconset input[type="submit"].enable:hover { background-position: -30px -240px !important; }
+.iconset input[type="submit"].enable:active { background-position: -60px -240px !important; }
+
+.iconset input[type="submit"].terminate {
+    background: url('../../piston/images/icons.png') no-repeat top left !important;
+}
+
+.iconset input[type="submit"].terminate:hover { background-position: -30px 0px !important; }
+.iconset input[type="submit"].terminate:active { background-position: -60px 0px !important; }
+
+.iconset input[type="submit"].reboot {
+    background: url('../../piston/images/icons.png') no-repeat top left !important;
+    background-position: 0px -330px !important;
+}
+
+.iconset input[type="submit"].reboot:hover { background-position: -30px -330px !important; }
+.iconset input[type="submit"].reboot:active { background-position: -60px -330px !important; }
+
+a.console_log{
+    background: url('../../piston/images/icons.png') no-repeat top left !important;
+    background-position: 0px -270px !important;
+}
+a.console_log:hover { background-position: -30px -270px !important; }
+a.console_log:active { background-position: -60px -270px !important; }
+
+a.vnc_console{
+    background: url('../../piston/images/icons.png') no-repeat top left !important;
+    background-position: 0px -300px !important;
+}
+a.vnc_console:hover { background-position: -30px -300px !important; }
+a.vnc_console:active { background-position: -60px -300px !important; }
+
+a.snapshot{
+    background: url('../../piston/images/icons.png') no-repeat top left !important;
+    background-position: 0px -360px !important;
+}
+a.snapshot:hover { background-position: -30px -360px !important; }
+a.snapshot:active { background-position: -60px -360px !important; }
+
+a.launch{
+    background: url('../../piston/images/icons.png') no-repeat top left !important;
+    background-position: 0px -240px !important;
+}
+a.launch:hover { background-position: -30px -240px !important; }
+a.launch:active { background-position: -60px -240px !important; }
+
+a.associate_ip{
+    background: url('../../piston/images/icons.png') no-repeat top left !important;
+    background-position: 0px -450px !important;
+}
+a.associate_ip:hover { background-position: -30px -450px !important; }
+a.associate_ip:active { background-position: -60px -450px !important; }
+
+.iconset input[type="submit"].release {
+    background: url('../../piston/images/icons.png') no-repeat top left !important;
+    background-position: 0px -480px !important;
+}
+
+.iconset input[type="submit"].release:hover { background-position: -30px -480px !important; }
+.iconset input[type="submit"].release:active { background-position: -60px -480px !important; }
+
+.iconset input[type="submit"].disassociate {
+    background: url('../../piston/images/icons.png') no-repeat top left !important;
+    background-position: 0px -510px !important;
+}
+
+.iconset input[type="submit"].disassociate:hover { background-position: -30px -510px !important; }
+.iconset input[type="submit"].disassociate:active { background-position: -60px -510px !important; }

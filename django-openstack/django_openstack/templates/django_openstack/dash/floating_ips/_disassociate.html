@@ -4,5 +4,5 @@
     {{hidden}}
   {% endfor %}
   <input name="floating_ip_id" type="hidden" value="{{ip.id}}" />
-  <input id="delete_{{ip.id}}" class="delete" title="Disassociate Floating IP: {{ip.id}} ({{ip.ip}})" type="submit" value="Disassociate" />
+  <input id="delete_{{ip.id}}" class="delete disassociate" title="Disassociate Floating IP: {{ip.id}} ({{ip.ip}})" type="submit" value="Disassociate" />
 </form>
