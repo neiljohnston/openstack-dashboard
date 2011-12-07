@@ -8,7 +8,7 @@
   <tr class="{% cycle 'odd' 'even' %}">
     <td>{{ keypair.name }}</td>
     <td>{{ keypair.fingerprint }}</td>
-    <td id="actions">
+    <td id="actions" class="iconset">
       <ul>
         <li class="form">{% include "django_openstack/dash/keypairs/_delete.html" with form=delete_form %}</li>
       </ul>
