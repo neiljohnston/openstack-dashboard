@@ -19,9 +19,11 @@
 #    under the License.
 
 import logging
+import urlparse
 
 from django import template
 from django import shortcuts
+from django.conf import settings
 from django.contrib import messages
 
 from django_openstack import api
@@ -139,6 +141,37 @@ def switch_tenants(request, tenant_id):
 
     return shortcuts.render_to_response('switch_tenants.html', {
         'to_tenant': tenant_id,
+        'form': form,
+    }, context_instance=template.RequestContext(request))
+
+
+def get_openrc(request):
+    catalogs = []
+    
+    keystone = [c['endpoints'] for c in request.session['serviceCatalog']
+                                     if c['name'] == 'keystone'][0]
+                                    
+    nova_url = keystone[0]['publicURL']
+    ec2_url = list(urlparse.urlparse(nova_url))
+    try:
+        ec2_port = settings.EC2_PORT
+    except:
+        ec2_port = "8773" #default if setting isn't available
+    ec2_url[1] = str.join(':', (ec2_url[1].split(':')[0], ec2_port))
+    ec2_url[2] = '/services/Cloud'
+    ec2_url = urlparse.urlunparse(ec2_url)
+    if request.user and request.user.is_authenticated:
+        data = {'token': request.session['unscoped_token'],
+                'user': request.user,
+                'nova_url': nova_url,
+                'ec2_url': ec2_url,
+                }
+        response = shortcuts.render_to_response('auth_openrc', data, 
+                             context_instance=template.RequestContext(request), mimetype="text")
+        response['Content-Disposition'] = 'attachment; filename=openrc.sh'
+        return response
+
+    return shortcuts.render_to_response('splash.html', {
         'form': form,
     }, context_instance=template.RequestContext(request))
 

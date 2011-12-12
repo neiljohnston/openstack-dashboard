@@ -1,0 +1,57 @@
+#!/bin/bash
+
+
+# Nova original used project_id as the *account* that owned resources (servers,
+# ip address, ...)   With the addition of Keystone we have standardized on the
+# term **tenant** as the entity that owns the resources.  **novaclient** still
+# uses the old deprecated terms project_id.  Note that this field should now be
+# set to tenant_name, not tenant_id.
+export NOVA_PROJECT_ID={{user.tenant_id}}
+
+
+# In addition to the owning entity (tenant), nova stores the entity performing
+# the action as the **user**.
+export NOVA_USERNAME={{user.username}}
+
+# With Keystone you pass the keystone password instead of an api key.
+# The most recent versions of novaclient use NOVA_PASSWORD instead of NOVA_API_KEY
+echo "Please enter your Nova Password: "
+read -s NOVA_PASSWORD
+export NOVA_PASSWORD
+
+# With the addition of Keystone, to use an openstack cloud you should
+# authenticate against keystone, which returns a **Token** and **Service
+# Catalog**.  The catalog contains the endpoint for all services the user/tenant
+# has access to - including nova, glance, keystone, swift, ...  We currently
+# recommend using the 2.0 *auth api*.
+#
+# *NOTE*: Using the 2.0 *auth api* does not mean that compute api is 2.0.  We
+# will use the 1.1 *compute api*
+NOVA_URL={{nova_url}}
+
+# Currently novaclient needs you to specify the *compute api* version.  This
+# needs to match the config of your catalog returned by Keystone.
+export NOVA_VERSION=1.1
+
+# Set the ec2 url so euca2ools works
+export EC2_URL={{ec2_url}}
+
+# Access key is set in the initial keystone data to be the same as username
+export EC2_ACCESS_KEY={{user.username}}
+# Secret key is set in the initial keystone data to the admin password
+export EC2_SECRET_KEY=$NOVA_PASSWORD
+
+# set log level to DEBUG (helps debug issues)
+# export NOVACLIENT_DEBUG=1
+
+# Max time till the vm is bootable
+export BOOT_TIMEOUT=15
+
+# Max time to wait while vm goes from build to active state
+export ACTIVE_TIMEOUT=10
+
+# Max time from run instance command until it is running
+export RUNNING_TIMEOUT=${RUNNING_TIMEOUT:-$(($BOOT_TIMEOUT + $ACTIVE_TIMEOUT))}
+
+# Max time to wait for proper IP association and dis-association.
+export ASSOCIATE_TIMEOUT=10
