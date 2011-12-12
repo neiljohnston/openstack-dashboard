@@ -8,11 +8,11 @@
         <li><a {% if current_topbar == "syspanel" %} class="active" {% endif %} href="{% url syspanel_overview %}">System Panel</a></li>
         <li><a {% if current_topbar == "pentos" %} class="active" {% endif %} href="{% url pentos_overview %}">PentOS</a></li>
 
-        {% if not pentos.update %}
+        {% if pentos.update %}
           <li class="pentos_update"><a href="{% url piston_updates %}">Update {{pentos.version}} Available</a></li>
         {% endif %}
 
-        {% if pentos.entitled %}
+        {% if not pentos.entitled %}
           <li class="pentos_expired"><a href="{% url piston_expired %}">License Expired!</a></li>
         {% endif %}
 
