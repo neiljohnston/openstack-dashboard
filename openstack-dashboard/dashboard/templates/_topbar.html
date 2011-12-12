@@ -24,12 +24,13 @@
 
   <div id="user_bar">
     <div id="tenant_block">
-    <a id="current_tenant" href="{% url dash_overview %}">
-      <h4>{{request.user.tenant_name}}</h4>
-      <span>as {{request.user.username}}</span>
-    </a>
-    {# <a id="credentials_download" class="credentials" title="Download Credentials" href="#">Download Credentials</a> #}
+      <a id="current_tenant" href="{% url dash_overview %}">
+        <h4>{{request.user.tenant_name}}</h4>
+        <span>as {{request.user.username}}</span>
+      </a>
+       <a id="credentials_download" class="credentials" title="Download Credentials" href="{% url name_auth_openrc %}">Download Credentials</a>
     </div>
+
     <a id="drop_btn" href="#">&nbsp;</a>
     <ul id="user_tenant_list">
       <li class="title"><h4>Available Tenants</h4></li>
