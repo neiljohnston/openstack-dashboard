@@ -77,7 +77,6 @@ TEMPLATE_LOADERS = (
 )
 
 TEMPLATE_DIRS = (
-    os.path.join(ROOT_PATH, 'templates'),
 )
 
 STATICFILES_DIRS = (
@@ -85,6 +84,7 @@ STATICFILES_DIRS = (
 )
 
 INSTALLED_APPS = (
+    'savage.dash',
     'dashboard',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -92,7 +92,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django_openstack',
     'django_openstack.templatetags',
-    'savage.dash',
     'mailer',
 )
 
