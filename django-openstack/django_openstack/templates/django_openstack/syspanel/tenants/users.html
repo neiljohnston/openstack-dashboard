@@ -29,7 +29,7 @@
             <td>{{user.id}}</td>
             <td>{{user.name}}</td>
             <td>{{user.email}}</td>
-            <td id="actions">
+            <td class="actions">
               <ul>
                 <li class="form">{% include "django_openstack/syspanel/tenants/_remove_user.html" with form=remove_user_form %}</li>
               </ul>
@@ -57,7 +57,7 @@
         <tr class="{% cycle 'odd' 'even' %}">
             <td>{{user.id}}</td>
             <td>{{user.name}}</td>
-            <td id="actions">
+            <td class="actions">
               <ul>
                 <li class="form">{% include "django_openstack/syspanel/tenants/_add_user.html" with form=add_user_form %}</li>
               </ul>

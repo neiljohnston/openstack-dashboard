@@ -27,7 +27,7 @@
             --
             {% endif %}
           </td>
-          <td id="actions">
+          <td class="actions">
             <ul>
               {% if port.attachment %}
               <li class="form">{% include "django_openstack/dash/networks/_detach_port.html" with form=detach_port_form %}</li>

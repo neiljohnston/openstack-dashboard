@@ -501,15 +501,15 @@ tr {
   -o-transition: background 0.2s;
 }
 
-td#actions {
+td.actions {
   width: 240px;
 }
 
-td#actions ul { margin: 0; }
+td.actions ul { margin: 0; }
 
-td#actions li a { font-size: 11px; }
+td.actions li a { font-size: 11px; }
 
-td#actions li {
+td.actions li {
   font-size: 11px;
   margin: 10px 8px 6px 10px;
   display: inline;
@@ -517,7 +517,7 @@ td#actions li {
   width: 100%;
 }
 
-td#actions li.form input[type="submit"] {
+td.actions li.form input[type="submit"] {
   color: #3fb9d3;
   background: transparent;
   text-align: left;
@@ -529,7 +529,7 @@ td#actions li.form input[type="submit"] {
   cursor: pointer;
   border: 0px;
 }
-td#actions input[type="submit"]:hover { text-decoration: underline; }
+td.actions input[type="submit"]:hover { text-decoration: underline; }
 
 
 /* Status Messages */
@@ -1204,6 +1204,15 @@ a.inactive:active { background-position: -120px -180px !important; }
 .iconset input[type="submit"].reboot:hover { background-position: -30px -330px !important; }
 .iconset input[type="submit"].reboot:active { background-position: -60px -330px !important; }
 
+a.nodeupdate {
+    background: url('../../piston/images/icons.png') no-repeat top left !important;
+    background-position: 0px -330px !important;
+}
+a.nodeupdate:hover { background-position: -30px -330px !important; }
+a.nodeupdate:active { background-position: -60px -330px !important; }
+a.nodeupdate[disabled] { background-position: -120px -330px !important; }
+
+
 a.console_log{
     background: url('../../piston/images/icons.png') no-repeat top left !important;
     background-position: 0px -270px !important;
@@ -1254,3 +1263,33 @@ a.associate_ip:active { background-position: -60px -450px !important; }
 
 .iconset input[type="submit"].disassociate:hover { background-position: -30px -510px !important; }
 .iconset input[type="submit"].disassociate:active { background-position: -60px -510px !important; }
+
+
+a.node-up{
+    background: url('../../piston/images/icons.png') no-repeat top left !important;
+    background-position: -30px -630px !important;
+}
+
+a.node-down{
+    background: url('../../piston/images/icons.png') no-repeat top left !important;
+    background-position: -90px -660px !important;
+}
+
+#orchestrationUpdateBtn{ display:none;}
+.larger {font-size: 1.1em !important;}
+
+.fetchUpdateBox {
+ height: 70px;
+}
+
+#launchUpdate {
+    display: none
+}
+
+#completedUpdate{
+    display: none;
+}
+
+#msgErrorBlock{
+    display: none;
+}

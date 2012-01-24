@@ -55,7 +55,7 @@
             {% endfor %}
           </td>
           <td>{{instance.status|lower|capfirst}}</td>
-          <td id="actions" class="iconset">
+          <td class="actions iconset">
             <ul>
               <li class="form">{% include "django_openstack/common/instances/_terminate.html" with form=terminate_form %}</li>
               <li class="form">{% include "django_openstack/common/instances/_reboot.html" with form=reboot_form %}</li>

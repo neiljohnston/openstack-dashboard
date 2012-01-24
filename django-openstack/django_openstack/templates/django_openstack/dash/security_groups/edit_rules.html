@@ -28,7 +28,7 @@
             <td>{{ rule.from_port }}</td>
             <td>{{ rule.to_port }}</td>
             <td>{{rule.ip_range.cidr}}</td>
-            <td id="actions">
+            <td class="actions">
               <ul>
                 <li class="form">{% include "django_openstack/dash/security_groups/_delete_rule.html" with form=delete_form %}</li>
               </ul>
