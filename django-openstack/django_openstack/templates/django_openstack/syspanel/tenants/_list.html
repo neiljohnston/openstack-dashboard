@@ -12,7 +12,7 @@
       <td>{{tenant.name}}</td>
       <td>{{tenant.description}}</td>
       <td>{{tenant.enabled}}</td>
-      <td id="actions" class="iconset">
+      <td class="actions iconset">
         <ul>
           <li class="form">{% include "django_openstack/syspanel/tenants/_delete.html" with form=tenant_delete_form %}</li>
           <li><a href="{% url syspanel_tenant_update tenant.id %}" class="edit" title="Edit">Edit</a></li>

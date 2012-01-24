@@ -14,7 +14,7 @@
       <td>{{image.created_at|parse_date}}</td>
       <td>{{image.updated_at|parse_date}}</td>
       <td>{{image.status|capfirst}}</td>
-      <td id="actions" class="iconset">
+      <td class="actions iconset">
           <ul>
       {% if image.owner == request.user.username %}
             <li class="form">{% include "django_openstack/dash/images/_delete.html" with form=delete_form %}</li>

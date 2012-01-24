@@ -15,7 +15,7 @@
           <td>{{network.total}}</td>
           <td>{{network.available}}</td>
           <td>{{network.used}}</td>
-          <td id="actions">
+          <td class="actions">
             <ul>
               <li class="form">{% include "django_openstack/dash/networks/_delete.html" with form=delete_form %}</li>
               <li><a href='{% url dash_network_rename request.user.tenant_id network.id %}'>Rename</a></li>
