@@ -1283,7 +1283,7 @@ a.node-down{
 }
 
 #launchUpdate {
-    display: none
+    display: none;
 }
 
 #completedUpdate{
@@ -1293,3 +1293,9 @@ a.node-down{
 #msgErrorBlock{
     display: none;
 }
+
+
+a.nodestate{
+    background: url('../../piston/images/oscilloscope.gif') no-repeat top left !important;
+}
+
