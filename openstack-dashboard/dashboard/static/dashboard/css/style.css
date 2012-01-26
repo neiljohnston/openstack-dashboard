@@ -1282,15 +1282,7 @@ a.node-down{
  height: 70px;
 }
 
-#launchUpdate {
-    display: none;
-}
-
-#completedUpdate{
-    display: none;
-}
-
-#msgErrorBlock{
+#startUpdate, #launchUpdate, #completedUpdate, #msgErrorBlock{
     display: none;
 }
 
