@@ -1291,3 +1291,14 @@ a.nodestate{
     background: url('../../piston/images/oscilloscope.gif') no-repeat top left !important;
 }
 
+a.spinner-gray{
+   background: url('../../piston/images/gear-spinner-gray.gif') no-repeat top left !important;
+   padding-left: 25px;
+   background-position: 0px -1px !important;
+}
+
+a.spinner{
+    font: 16px trebuchet, helvetica, arial, sans-serif !important;
+    color: #455560;
+}
+
