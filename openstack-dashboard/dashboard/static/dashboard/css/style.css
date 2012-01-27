@@ -1211,6 +1211,7 @@ a.nodeupdate {
 a.nodeupdate:hover { background-position: -30px -330px !important; }
 a.nodeupdate:active { background-position: -60px -330px !important; }
 a.nodeupdate[disabled] { background-position: -120px -330px !important; }
+a.nodeupdate[error] { background-position: -90px -330px !important; }
 
 
 a.console_log{
@@ -1282,13 +1283,17 @@ a.node-down{
  height: 70px;
 }
 
-#startUpdate, #launchUpdate, #completedUpdate, #msgErrorBlock{
+ #launchUpdate, #completedUpdate, #msgErrorBlock{
     display: none;
 }
 
 
 a.nodestate{
     background: url('../../piston/images/oscilloscope.gif') no-repeat top left !important;
+}
+
+a.nodeupdating{
+    background: url('../../piston/images/gear-blue-30-30.gif') no-repeat top left !important;
 }
 
 a.spinner-gray{
