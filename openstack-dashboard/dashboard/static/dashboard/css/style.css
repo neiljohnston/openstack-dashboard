@@ -1296,9 +1296,16 @@ a.spinner-gray{
    padding-left: 25px;
    background-position: 0px -1px !important;
 }
+a.spinner-gray-30-30{
+    background: url('../../piston/images/gear-gray-30-30.gif') no-repeat top left !important;
+}
 
 a.spinner{
     font: 16px trebuchet, helvetica, arial, sans-serif !important;
     color: #455560;
+}
+
+#data{
+    display:none;
 }
 
