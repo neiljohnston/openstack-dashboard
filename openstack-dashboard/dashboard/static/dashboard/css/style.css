@@ -1278,10 +1278,6 @@ a.node-down{
 #orchestrationUpdateBtn{ display:none;}
 .larger {font-size: 1.1em !important;}
 
-.fetchUpdateBox {
- height: 70px;
-}
-
 #startUpdate, #launchUpdate, #completedUpdate, #msgErrorBlock{
     display: none;
 }
